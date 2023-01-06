@@ -7,6 +7,7 @@ Project for the Machine Learning Operations course at DTU
 Luca Bertolani s220647 \
 Jens Christian Bang Gribsvad s174477 \
 Benjamin Jenfort Henriksen s214129 \
+Poul Gunnar Pii Svane s153529 \
 ...
 ...
 
