@@ -3,6 +3,8 @@ import click
 import logging
 from pathlib import Path
 from dotenv import find_dotenv, load_dotenv
+import os
+import datasets
 
 
 @click.command()
@@ -12,6 +14,11 @@ def main(input_filepath, output_filepath):
     """ Runs data processing scripts to turn raw data from (../raw) into
         cleaned data ready to be analyzed (saved in ../processed).
     """
+    #TODO: This is just a copy of CLIP pre-run code.
+    # Should be reformated to fit within a func
+    COCO_DIR = os.path.join(os.getcwd(), "data")
+    ds = datasets.load_dataset("ydshieh/coco_dataset_script", "2017", data_dir=COCO_DIR)
+
     logger = logging.getLogger(__name__)
     logger.info('making final data set from raw data')
 
