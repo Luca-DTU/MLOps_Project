@@ -4,22 +4,22 @@ MLOps_Project
 Project for the Machine Learning Operations course at DTU
 
 ### Members
-Luca Bertolani s220647
+Luca Bertolani s220647 \
 ...
 ...
 ...
 ...
 
 ### Overall goal of the project
-
+The goal of the project is to generate image captions by fine tuning the CLIP model.
 ### What framework are you going to use (Kornia, Transformer, Pytorch-Geometrics)
-
+We are going to use the Transformers framework
 ### How to you intend to include the framework into your project
 
 ### What data are you going to run on (initially, may change)
-
+We are going to run on the coco dataset, which is a comprehensive image dataset: https://cocodataset.org/
 ### What deep learning models do you expect to use
-
+We are going to use the CLIP model: https://github.com/openai/CLIP
 ## Project checklist
 
 Please note that all the lists are *exhaustive* meaning that I do not expect you to have completed very
