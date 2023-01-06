@@ -8,8 +8,7 @@ Luca Bertolani s220647 \
 Jens Christian Bang Gribsvad s174477 \
 Benjamin Jenfort Henriksen s214129 \
 Poul Gunnar Pii Svane s153529 \
-...
-...
+Andreas With Aspe s174107
 
 ### Overall goal of the project
 The goal of the project is to generate image captions by fine tuning the CLIP model.
