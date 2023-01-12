@@ -6,15 +6,16 @@ Project for the Machine Learning Operations course at DTU
 ### Members
 Luca Bertolani s220647 \
 Jens Christian Bang Gribsvad s174477 \
-...
-...
-...
+Benjamin Jenfort Henriksen s214129 \
+Poul Gunnar Pii Svane s153529 \
+Andreas With Aspe s174107
 
 ### Overall goal of the project
 The goal of the project is to generate image captions by fine tuning the CLIP model.
 ### What framework are you going to use (Kornia, Transformer, Pytorch-Geometrics)
 We are going to use the Transformers framework
 ### How to you intend to include the framework into your project
+The CLIP model is pre-trained and formulated by Transformers. We will initially finetune the model by further training the pre-trained model on the cocodataset to finetune it to the pictures and annotations. If possible we would also like to fully train the clip network for our given dataset, but only if there is enough time as our main focus is the operations. 
 
 ### What data are you going to run on (initially, may change)
 We are going to run on the coco dataset, which is a comprehensive image dataset: https://cocodataset.org/
