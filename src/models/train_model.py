@@ -297,7 +297,9 @@ def main():
             data_files["validation"] = data_args.validation_file
             extension = data_args.validation_file.split(".")[-1]
         if data_args.test_file is not None:
-            data_files["new"] = data_args.test_file
+
+            data_files["test"] = data_args.test_file
+
             extension = data_args.test_file.split(".")[-1]
         dataset = load_dataset(
             extension,
@@ -359,7 +361,8 @@ def main():
     elif training_args.do_eval:
         column_names = dataset["validation"].column_names
     elif training_args.do_predict:
-        column_names = dataset["new"].column_names
+
+        column_names = dataset["test"].column_names
     else:
         logger.info("There is nothing to do. Please pass `do_train`, `do_eval` and/or `do_predict`.")
         return
@@ -462,9 +465,11 @@ def main():
         eval_dataset.set_transform(transform_images)
 
     if training_args.do_predict:
-        if "new" not in dataset:
-            raise ValueError("--do_predict requires a new dataset")
-        test_dataset = dataset["new"]
+
+        if "test" not in dataset:
+            raise ValueError("--do_predict requires a test dataset")
+        test_dataset = dataset["test"]
+
         if data_args.max_eval_samples is not None:
             max_eval_samples = min(len(test_dataset), data_args.max_eval_samples)
             test_dataset = test_dataset.select(range(max_eval_samples))
@@ -478,7 +483,9 @@ def main():
             num_proc=data_args.preprocessing_num_workers,
             remove_columns=[col for col in column_names if col != image_column],
             load_from_cache_file=not data_args.overwrite_cache,
-            desc="Running tokenizer on new dataset",
+
+            desc="Running tokenizer on test dataset",
+
         )
 
         # Transform images on the fly as doing it on the whole dataset takes too much time.
