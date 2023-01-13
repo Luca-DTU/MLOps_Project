@@ -5,16 +5,16 @@ from transformers import TrainingArguments
 import numpy as np
 import evaluate
 from transformers import TrainingArguments, Trainer
-
+import omegaconf
 import hydra
 import os
 
 from src.data.make_dataset import yelp_dataset
 from src.models.model import Transformer
+cfg = omegaconf.OmegaConf.load('conf/config.yaml')
 
-
-train_set = yelp_dataset(train=True, in_folder="data/raw", out_folder="data/processed")
-test_set = yelp_dataset(train=False, in_folder="data/raw", out_folder="data/processed")
+train_set = yelp_dataset(train=True, in_folder=cfg.data.input_filepath, out_folder=cfg.data.output_filepath)
+test_set = yelp_dataset(train=False, in_folder=cfg.data.input_filepath, out_folder=cfg.data.output_filepath)
 
 #Download the pretrained model
 model = Transformer()
