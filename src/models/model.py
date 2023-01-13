@@ -1,7 +1,7 @@
 from transformers import AutoModelForSequenceClassification
 
 
-def Transformer(path=None, num_labels=5):
+def transformer(path=None, num_labels=5):
     """
     Current file location is models/pre_trained
     """
