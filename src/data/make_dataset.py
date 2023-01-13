@@ -70,6 +70,7 @@ class yelp_dataset(Dataset):
 
 
 
+
 @hydra.main(config_path = os.path.join(os.getcwd(),'conf'), config_name='config.yaml')
 def main(cfg) -> None:
     """Runs data processing scripts to turn raw data from (../raw) into
