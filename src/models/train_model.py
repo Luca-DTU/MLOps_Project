@@ -5,13 +5,13 @@ from transformers import TrainingArguments
 import numpy as np
 import evaluate
 from transformers import TrainingArguments, Trainer
-
+import omegaconf
 import hydra
 import os
 
 from src.data.make_dataset import yelp_dataset
 from src.models.model import Transformer
-
+cfg = omegaconf.OmegaConf.load('conf/config.yaml')
 
 train_set = yelp_dataset(train=True, in_folder="data/raw", out_folder="data/processed").data
 test_set = yelp_dataset(train=False, in_folder="data/raw", out_folder="data/processed").data
