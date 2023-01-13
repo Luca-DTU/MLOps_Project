@@ -13,8 +13,8 @@ from src.data.make_dataset import yelp_dataset
 from src.models.model import Transformer
 
 
-train_set = yelp_dataset(train=True, in_folder="data/raw", out_folder="data/processed")
-test_set = yelp_dataset(train=False, in_folder="data/raw", out_folder="data/processed")
+train_set = yelp_dataset(train=True, in_folder="data/raw", out_folder="data/processed").data
+test_set = yelp_dataset(train=False, in_folder="data/raw", out_folder="data/processed").data
 
 #Download the pretrained model
 model = Transformer()

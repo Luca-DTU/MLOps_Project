@@ -18,7 +18,7 @@ from hydra.core.hydra_config import HydraConfig
 
 original_path = os.getcwd()
 
-class yelp_dataset(Dataset):
+class yelp_dataset:
     def __init__(
         self,
         train: bool,
@@ -92,7 +92,6 @@ def main(cfg) -> None:
 
     print(HydraConfig.get().job.name)
     print(HydraConfig.get().job.chdir)
-
 
 
     logger = logging.getLogger(__name__)
