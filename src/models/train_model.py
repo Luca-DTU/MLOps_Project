@@ -6,23 +6,19 @@ import numpy as np
 import evaluate
 from transformers import TrainingArguments, Trainer
 
-#Load data
-dataset = datasets.load_from_disk('data/raw')
+import hydra
+import os
 
-#Load tokenizer
-tokenizer = AutoTokenizer.from_pretrained("bert-base-cased")
+from src.data.make_dataset import yelp_dataset
+from src.models.model import Transformer
 
-#Run tokenizer on dataset
-def tokenize_function(examples):
-    return tokenizer(examples["text"], padding="max_length", truncation=True)
-tokenized_datasets = dataset.map(tokenize_function, batched=True)
 
-#Get a subset of dataset
-small_train_dataset = tokenized_datasets["train"].shuffle(seed=42).select(range(1000))
-small_eval_dataset = tokenized_datasets["test"].shuffle(seed=42).select(range(1000))
+
+train_set = yelp_dataset(train=True, in_folder="data/raw", out_folder="data/processed")
+test_set = yelp_dataset(train=False, in_folder="data/raw", out_folder="data/processed")
 
 #Download the pretrained model
-model = AutoModelForSequenceClassification.from_pretrained("bert-base-cased", num_labels=5)
+model = Transformer()
 
 #Define metric
 metric = evaluate.load("accuracy")
@@ -34,17 +30,22 @@ def compute_metrics(eval_pred):
     return metric.compute(predictions=predictions, references=labels)
 
 #Define training arguments
-training_args = TrainingArguments(output_dir="test_trainer", evaluation_strategy="epoch")
+@hydra.main(config_path = os.path.join(os.getcwd(),'conf'), config_name='config.yaml')
+def load_training_cfg(cfg):
+    info = cfg.model
+    training_args = TrainingArguments(**info)
+    return training_args
+
+training_args = load_training_cfg()
 
 #Define trainer
 trainer = Trainer(
     model=model,
     args=training_args,
-    train_dataset=small_train_dataset,
-    eval_dataset=small_eval_dataset,
+    train_dataset=train_set,
+    eval_dataset=test_set,
     compute_metrics=compute_metrics,
 )
-
 
 #Train!
 trainer.train()
