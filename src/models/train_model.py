@@ -42,8 +42,8 @@ training_args = load_training_cfg()
 trainer = Trainer(
     model=model,
     args=training_args,
-    train_dataset=small_train_dataset,
-    eval_dataset=small_eval_dataset,
+    train_dataset=train_set,
+    eval_dataset=test_set,
     compute_metrics=compute_metrics,
 )
 
