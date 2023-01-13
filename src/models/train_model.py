@@ -5,8 +5,13 @@ from transformers import TrainingArguments
 import numpy as np
 import evaluate
 from transformers import TrainingArguments, Trainer
+
+import hydra
+import os
+
 from src.data.make_dataset import yelp_dataset
 from src.models.model import model
+
 
 
 train_set = yelp_dataset(train=True, in_folder="data/raw", out_folder="data/processed")
@@ -25,7 +30,13 @@ def compute_metrics(eval_pred):
     return metric.compute(predictions=predictions, references=labels)
 
 #Define training arguments
-training_args = TrainingArguments(output_dir="test_trainer", evaluation_strategy="epoch")
+@hydra.main(config_path = os.path.join(os.getcwd(),'conf'), config_name='config.yaml')
+def load_training_cfg(cfg):
+    info = cfg.model
+    training_args = TrainingArguments(**info)
+    return training_args
+
+training_args = load_training_cfg()
 
 #Define trainer
 trainer = Trainer(
