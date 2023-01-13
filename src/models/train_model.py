@@ -13,8 +13,8 @@ from src.data.make_dataset import yelp_dataset
 from src.models.model import Transformer
 cfg = omegaconf.OmegaConf.load('conf/config.yaml')
 
-train_set = yelp_dataset(train=True, in_folder=cfg.data.input_filepath, out_folder=cfg.data.output_filepath)
-test_set = yelp_dataset(train=False, in_folder=cfg.data.input_filepath, out_folder=cfg.data.output_filepath)
+train_set = yelp_dataset(train=True, in_folder="data/raw", out_folder="data/processed").data
+test_set = yelp_dataset(train=False, in_folder="data/raw", out_folder="data/processed").data
 
 #Download the pretrained model
 model = Transformer()
