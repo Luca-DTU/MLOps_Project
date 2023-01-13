@@ -48,3 +48,4 @@ trainer = Trainer(
 
 #Train!
 trainer.train()
+model.save_pretrained("models/experiments")
