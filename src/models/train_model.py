@@ -5,6 +5,8 @@ from transformers import TrainingArguments
 import numpy as np
 import evaluate
 from transformers import TrainingArguments, Trainer
+import hydra
+import os
 
 #Load data
 dataset = datasets.load_from_disk('data/raw')
@@ -34,7 +36,13 @@ def compute_metrics(eval_pred):
     return metric.compute(predictions=predictions, references=labels)
 
 #Define training arguments
-training_args = TrainingArguments(output_dir="test_trainer", evaluation_strategy="epoch")
+@hydra.main(config_path = os.path.join(os.getcwd(),'conf'), config_name='config.yaml')
+def load_training_cfg(cfg):
+    info = cfg.model
+    training_args = TrainingArguments(**info)
+    return training_args
+
+training_args = load_training_cfg()
 
 #Define trainer
 trainer = Trainer(
