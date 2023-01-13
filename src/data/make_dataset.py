@@ -87,15 +87,8 @@ def main(input_filepath: str, output_filepath: str) -> None:
     logger.info("making final data set from raw data")
 
     train = yelp_dataset(train=True, in_folder=input_filepath, out_folder=output_filepath)
-    train.save_preprocessed()
 
     test = yelp_dataset(train=False, in_folder=input_filepath, out_folder=output_filepath)
-    test.save_preprocessed()
-
-    print(train.data.shape)
-    print(train.targets.shape)
-    print(test.data.shape)
-    print(test.targets.shape)
 
 
 if __name__ == "__main__":
