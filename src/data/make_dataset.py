@@ -18,7 +18,6 @@ import os
 
 class yelp_dataset(Dataset):
     def __init__(
-        cfg,
         self,
         train: bool,
         in_folder: str = "",
