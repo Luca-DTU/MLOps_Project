@@ -1,4 +1,4 @@
-from datasets import load_dataset
+import datasets
 from transformers import AutoTokenizer
 from transformers import AutoModelForSequenceClassification
 from transformers import TrainingArguments
@@ -8,7 +8,7 @@ from transformers import TrainingArguments, Trainer
 from src.data.make_dataset import yelp_dataset
 from src.models.model import model
 
-#Load data
+
 train_set = yelp_dataset(train=True, in_folder="data/raw", out_folder="data/processed")
 test_set = yelp_dataset(train=False, in_folder="data/raw", out_folder="data/processed")
 
