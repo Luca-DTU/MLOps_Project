@@ -9,7 +9,7 @@ from transformers import TrainingArguments, Trainer
 #Load data
 dataset = load_dataset("yelp_review_full")
 dataset["train"][100]
-
+"tst string"
 #Load tokenizer
 tokenizer = AutoTokenizer.from_pretrained("bert-base-cased")
 
