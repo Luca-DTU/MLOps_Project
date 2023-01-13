@@ -5,24 +5,15 @@ from transformers import TrainingArguments
 import numpy as np
 import evaluate
 from transformers import TrainingArguments, Trainer
+from src.data.make_dataset import yelp_dataset
+from src.models.model import model
 
-#Load data
-dataset = datasets.load_from_disk('data/raw')
 
-#Load tokenizer
-tokenizer = AutoTokenizer.from_pretrained("bert-base-cased")
-
-#Run tokenizer on dataset
-def tokenize_function(examples):
-    return tokenizer(examples["text"], padding="max_length", truncation=True)
-tokenized_datasets = dataset.map(tokenize_function, batched=True)
-
-#Get a subset of dataset
-small_train_dataset = tokenized_datasets["train"].shuffle(seed=42).select(range(1000))
-small_eval_dataset = tokenized_datasets["test"].shuffle(seed=42).select(range(1000))
+train_set = yelp_dataset(train=True, in_folder="data/raw", out_folder="data/processed")
+test_set = yelp_dataset(train=False, in_folder="data/raw", out_folder="data/processed")
 
 #Download the pretrained model
-model = AutoModelForSequenceClassification.from_pretrained("bert-base-cased", num_labels=5)
+model = model()
 
 #Define metric
 metric = evaluate.load("accuracy")
@@ -44,7 +35,6 @@ trainer = Trainer(
     eval_dataset=small_eval_dataset,
     compute_metrics=compute_metrics,
 )
-
 
 #Train!
 trainer.train()
