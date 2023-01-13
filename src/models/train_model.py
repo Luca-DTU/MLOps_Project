@@ -1,4 +1,4 @@
-from datasets import load_dataset
+import datasets
 from transformers import AutoTokenizer
 from transformers import AutoModelForSequenceClassification
 from transformers import TrainingArguments
@@ -7,9 +7,8 @@ import evaluate
 from transformers import TrainingArguments, Trainer
 
 #Load data
-dataset = load_dataset("yelp_review_full")
-dataset["train"][100]
-"tst string"
+dataset = datasets.load_from_disk('data/raw')
+
 #Load tokenizer
 tokenizer = AutoTokenizer.from_pretrained("bert-base-cased")
 
