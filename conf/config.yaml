@@ -1,6 +1,8 @@
 data : 
   seed : 69
-  n_samples : 1000
+  size : 1000
+  input_filepath : data/raw
+  output_filepath : data/processed
 model : 
   num_train_epochs : 10
   learning_rate : 0.0005
