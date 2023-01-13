@@ -30,10 +30,10 @@ point on the checklist for the exam.
 
 * [x] Create a git repository
 * [x] Make sure that all team members have write access to the github repository
-* [ ] Create a dedicated environment for you project to keep track of your packages
+* [x] Create a dedicated environment for you project to keep track of your packages
 * [x] Create the initial file structure using cookiecutter
-* [ ] Fill out the `make_dataset.py` file such that it downloads whatever data you need and
-* [ ] Add a model file and a training script and get that running
+* [x] Fill out the `make_dataset.py` file such that it downloads whatever data you need and
+* [x] Add a model file and a training script and get that running
 * [x] Remember to fill out the `requirements.txt` file with whatever dependencies that you are using
 * [ ] Remember to comply with good coding practices (`pep8`) while doing the project
 * [ ] Do a bit of code typing and remember to document essential parts of your code
@@ -44,7 +44,7 @@ point on the checklist for the exam.
 * [ ] Used Hydra to load the configurations and manage your hyperparameters
 * [ ] When you have something that works somewhat, remember at some point to to some profiling and see if
       you can optimize your code
-* [ ] Use Weights & Biases to log training progress and other important metrics/artifacts in your code. Additionally,
+* [x] Use Weights & Biases to log training progress and other important metrics/artifacts in your code. Additionally,
       consider running a hyperparameter optimization sweep.
 * [ ] Use Pytorch-lightning (if applicable) to reduce the amount of boilerplate in your code
 
