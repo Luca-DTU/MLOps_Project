@@ -11,3 +11,6 @@ model :
   jit_mode_eval : False
   optim : adam_hf
 
+hydra:
+  job:
+    chdir: False 
