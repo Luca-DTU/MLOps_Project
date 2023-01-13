@@ -12,3 +12,6 @@ model :
   optim : adamw_hf
 
 
+hydra:
+  job:
+    chdir: False 

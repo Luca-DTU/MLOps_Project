@@ -14,7 +14,9 @@ from datasets import load_dataset
 from transformers import AutoTokenizer
 import hydra
 import os
+from hydra.core.hydra_config import HydraConfig
 
+original_path = os.getcwd()
 
 class yelp_dataset(Dataset):
     def __init__(
@@ -87,6 +89,12 @@ def main(cfg) -> None:
     """Runs data processing scripts to turn raw data from (../raw) into
     cleaned data ready to be analyzed (saved in ../processed).
     """
+
+    print(HydraConfig.get().job.name)
+    print(HydraConfig.get().job.chdir)
+
+
+
     logger = logging.getLogger(__name__)
     logger.info("making final data set from raw data")
 
