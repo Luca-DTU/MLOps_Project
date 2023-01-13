@@ -2,7 +2,6 @@ from tests import _PATH_DATA
 import os
 from src.data.make_dataset import yelp_dataset
 import pytest
-import pdb
 
 """
 The following tests are for the data folder
@@ -64,6 +63,7 @@ def test_processed_text():
     ## test that the number of unique charecters is as expected
     assert len(set("".join(train_p.data['text']))) >= 26
     assert len(set("".join(test_p.data['text']))) >= 26
+
 
 
 

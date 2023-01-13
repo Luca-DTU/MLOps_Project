@@ -7,16 +7,8 @@
 
 # -*- coding: utf-8 -*-
 import logging
-import os
-import shutil
-from pathlib import Path
-from typing import Tuple
 
 import click
-import numpy as np
-import torch
-import wget
-from torch import Tensor
 from torch.utils.data import Dataset
 import datasets
 from datasets import load_dataset
