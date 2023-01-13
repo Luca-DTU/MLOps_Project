@@ -68,7 +68,7 @@ class yelp_dataset(Dataset):
 
 
 @click.command()
-@click.argument("input_filepath", type=click.Path(exists=True))
+@click.argument("input_filepath", type=click.Path(exists=False))
 @click.argument("output_filepath", type=click.Path())
 def main(input_filepath: str, output_filepath: str) -> None:
     """Runs data processing scripts to turn raw data from (../raw) into
