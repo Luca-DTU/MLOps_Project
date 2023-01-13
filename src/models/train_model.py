@@ -12,32 +12,33 @@ import os
 from src.data.make_dataset import yelp_dataset
 from src.models.model import transformer
 
-
 train_set = yelp_dataset(train=True, in_folder="data/raw", out_folder="data/processed")
 test_set = yelp_dataset(train=False, in_folder="data/raw", out_folder="data/processed")
 
 #Download the pretrained model
 model = transformer("models/pre_trained")
 
-#Define metric
+# Define metric
 metric = evaluate.load("accuracy")
 
-#Define metric function
+# Define metric function
 def compute_metrics(eval_pred):
     logits, labels = eval_pred
     predictions = np.argmax(logits, axis=-1)
     return metric.compute(predictions=predictions, references=labels)
 
-#Define training arguments
-@hydra.main(config_path = os.path.join(os.getcwd(),'conf'), config_name='config.yaml')
+
+# Define training arguments
+@hydra.main(config_path=os.path.join(os.getcwd(), "conf"), config_name="config.yaml")
 def load_training_cfg(cfg):
     info = cfg.model
     training_args = TrainingArguments(**info)
     return training_args
 
+
 training_args = load_training_cfg()
 
-#Define trainer
+# Define trainer
 trainer = Trainer(
     model=model,
     args=training_args,
@@ -46,6 +47,6 @@ trainer = Trainer(
     compute_metrics=compute_metrics,
 )
 
-#Train!
+# Train!
 trainer.train()
 trainer.save_model("models/experiments")

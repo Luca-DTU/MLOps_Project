@@ -1,4 +1,3 @@
-
 model = ()
 devices = ["cpu", "CUDA"]
 for dev in devices:
