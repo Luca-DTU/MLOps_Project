@@ -1,0 +1,11 @@
+data : 
+  seed : 69
+  n_samples : 1000
+model : 
+  num_train_epochs : 10
+  learning_rate : 0.0005
+  weight_decay : 0 
+  seed : 69
+  jit_mode_eval : False
+  optim : adam_hf
+
