@@ -1,0 +1,42 @@
+{
+    "os": "macOS-10.16-x86_64-i386-64bit",
+    "python": "3.9.15",
+    "heartbeatAt": "2023-01-13T16:04:08.872833",
+    "startedAt": "2023-01-13T16:04:07.942967",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/Users/andreasaspe/Documents/MLOPS/Project/MLOps_Project/src/models/train_model.py",
+    "codePath": "src/models/train_model.py",
+    "git": {
+        "remote": "https://github.com/Luca-DTU/MLOps_Project.git",
+        "commit": "693ecd444a1a575a5c73eaf83881452fdbfff8ae"
+    },
+    "email": "s174197@student.dtu.dk",
+    "root": "/Users/andreasaspe/Documents/MLOPS/Project/MLOps_Project",
+    "host": "Andreas-MacBook-Pro.local",
+    "username": "andreasaspe",
+    "executable": "/Users/andreasaspe/opt/anaconda3/envs/mlops/bin/python3",
+    "cpu_count": 4,
+    "cpu_count_logical": 4,
+    "cpu_freq": {
+        "current": 2900,
+        "min": 2900,
+        "max": 2900
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2900,
+            "min": 2900,
+            "max": 2900
+        }
+    ],
+    "disk": {
+        "total": 371.6064224243164,
+        "used": 371.3310546875
+    },
+    "memory": {
+        "total": 16.0
+    }
+}
