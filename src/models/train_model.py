@@ -10,15 +10,14 @@ import hydra
 import os
 
 from src.data.make_dataset import yelp_dataset
-from src.models.model import Transformer
-
+from src.models.model import transformer
 
 
 train_set = yelp_dataset(train=True, in_folder="data/raw", out_folder="data/processed")
 test_set = yelp_dataset(train=False, in_folder="data/raw", out_folder="data/processed")
 
 #Download the pretrained model
-model = Transformer()
+model = transformer("models/pre_trained")
 
 #Define metric
 metric = evaluate.load("accuracy")
@@ -49,4 +48,4 @@ trainer = Trainer(
 
 #Train!
 trainer.train()
-model.save_pretrained("models/experiments")
+trainer.save_model("models/experiments")
