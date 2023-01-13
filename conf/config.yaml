@@ -4,10 +4,11 @@ data :
   input_filepath : data/raw
   output_filepath : data/processed
 model : 
-  num_train_epochs : 10
+  max_steps : 10
   learning_rate : 0.0005
   weight_decay : 0 
   seed : 69
   jit_mode_eval : False
-  optim : adam_hf
+  optim : adamw_hf
+
 

@@ -33,7 +33,7 @@ def compute_metrics(eval_pred):
 @hydra.main(config_path=os.path.join(os.getcwd(), "conf"), config_name="config.yaml")
 def load_training_cfg(cfg):
     info = cfg.model
-    training_args = TrainingArguments(**info)
+    training_args = TrainingArguments(None,**info)
     return training_args
 
 
