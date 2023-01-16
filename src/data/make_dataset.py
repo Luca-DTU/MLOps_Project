@@ -27,9 +27,15 @@ class yelp_dataset:
         out_folder: str = "",
         seed: int = 0,
         size: int = 0,
+        max_train_size: int = 650000,
+        max_test_size: int = 50000
     ) -> None:
         super().__init__()
         self.seed = seed
+        if train:
+            size = min(size,max_train_size)
+        else:
+            size = min(size,max_test_size)
         self.size = size
         self.train = train
         self.in_folder = in_folder
@@ -39,7 +45,10 @@ class yelp_dataset:
             try:
                 self.load_preprocessed()
                 print("Loaded from pre-processed files")
-                return
+                #check if the saved dataset has the same size as specified in config file, else generate it again
+                if len(self.data) == self.size:
+                    return
+                print(f"the stored data has size {len(self.data)}, expected {self.size} \n Proceeding to regenerate the data")
             except ValueError:  # not created yet, we create instead
                 pass
 
