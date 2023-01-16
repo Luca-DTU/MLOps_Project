@@ -10,7 +10,9 @@ COPY setup.py setup.py
 COPY src/ src/
 COPY data/ data/
 COPY models/ models/
-COPY reports/ reports/
+COPY conf/ conf/
+
 WORKDIR /
 RUN pip install -r requirements.txt --no-cache-dir
 ENTRYPOINT ["python", "-u", "src/models/train_model.py"]
+
