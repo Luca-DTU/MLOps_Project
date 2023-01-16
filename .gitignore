@@ -90,3 +90,5 @@ target/
 /data
 /models
 /outputs
+/wandb
+/tmp_trainer
