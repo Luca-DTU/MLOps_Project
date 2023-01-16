@@ -39,7 +39,10 @@ class yelp_dataset:
             try:
                 self.load_preprocessed()
                 print("Loaded from pre-processed files")
-                return
+                #check if the saved dataset has the same size as specified in config file, else generate it again
+                if len(self.data) == self.size:
+                    return
+                print(f"the stored data has size {len(self.data)}, expected {self.size} \n Proceeding to regenerate the data")
             except ValueError:  # not created yet, we create instead
                 pass
 
