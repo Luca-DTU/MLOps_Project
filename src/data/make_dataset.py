@@ -71,7 +71,7 @@ class yelp_dataset:
     def load_preprocessed(self) -> None:
         split = "/train" if self.train else "/test"
         try:
-            self.data = datasets.load_from_disk(self.out_folder + split)
+            self.data = (datasets.load_from_disk(self.out_folder + split).select(range(self.size)))
         except:
             raise ValueError("No preprocessed files found")
 
@@ -98,7 +98,8 @@ def main(cfg) -> None:
     logger.info("making final data set from raw data")
 
     seed = cfg.data.seed
-    size = cfg.data.size
+    train_size = cfg.data.train_size
+    test_size = cfg.data.test_size
     input_filepath = cfg.data.input_filepath
     output_filepath = cfg.data.output_filepath
 
@@ -107,7 +108,7 @@ def main(cfg) -> None:
         in_folder=input_filepath,
         out_folder=output_filepath,
         seed=seed,
-        size=size,
+        size=train_size,
     )
 
     test = yelp_dataset(
@@ -115,8 +116,10 @@ def main(cfg) -> None:
         in_folder=input_filepath,
         out_folder=output_filepath,
         seed=seed,
-        size=size,
+        size=test_size,
     )
+    print(len(test.data))
+    print(len(train.data))
 
 
 if __name__ == "__main__":

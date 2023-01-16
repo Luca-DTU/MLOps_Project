@@ -1,4 +1,5 @@
 import datasets
+import torch.cuda
 from transformers import AutoTokenizer
 from transformers import AutoModelForSequenceClassification
 from transformers import TrainingArguments
@@ -13,6 +14,7 @@ from src.data.make_dataset import yelp_dataset
 from src.models.model import transformer
 
 cfg = omegaconf.OmegaConf.load("conf/config.yaml")
+
 
 # Define metric function
 def compute_metrics(eval_pred):
@@ -33,24 +35,30 @@ def load_training_cfg(cfg):
 
 def main():
     seed = cfg.data.seed
-    size = cfg.data.size
+    train_size = cfg.data.train_size
+    test_size = cfg.data.test_size
+
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    print(f"Training on {device}")
+
     train_set = yelp_dataset(
         train=True,
         in_folder=cfg.data.input_filepath,
         out_folder=cfg.data.output_filepath,
         seed=seed,
-        size=size,
+        size=train_size,
     ).data
+
     test_set = yelp_dataset(
         train=False,
         in_folder=cfg.data.input_filepath,
         out_folder=cfg.data.output_filepath,
         seed=seed,
-        size=size,
+        size=test_size,
     ).data
 
     # Download the pretrained model
-    model = transformer("models/pre_trained")
+    model = transformer("models/pre_trained").to(device)
     # load training configuration from cfg file
     training_args = load_training_cfg()
 
