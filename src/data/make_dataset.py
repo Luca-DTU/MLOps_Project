@@ -27,9 +27,15 @@ class yelp_dataset:
         out_folder: str = "",
         seed: int = 0,
         size: int = 0,
+        max_train_size: int = 650000,
+        max_test_size: int = 50000
     ) -> None:
         super().__init__()
         self.seed = seed
+        if train:
+            size = min(size,max_train_size)
+        else:
+            size = min(size,max_test_size)
         self.size = size
         self.train = train
         self.in_folder = in_folder
