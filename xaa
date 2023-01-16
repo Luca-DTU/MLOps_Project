@@ -1,1 +1,0 @@
- cd /Users/andreasaspe/Documents/MLOPS/Project/MLOps_Project ; /usr/bin/env /Users/andreasaspe/opt/anaconda3/envs/mlops/bin/python /Users/andreasaspe/.vscode/extensions/ms-python.python-2022.20.2/pythonFiles/lib/python/debugpy/adapter/../../debugpy/launcher 59230 -- /Users/andreasaspe/Documents/MLOPS/Project/MLOps_Project/src/data/make_dataset.py 
