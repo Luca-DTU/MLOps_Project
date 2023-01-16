@@ -11,7 +11,7 @@ def transformer(path=None, num_labels=5):
             "bert-base-cased", num_labels=num_labels
         )
         model.save_pretrained(path)
-        
+
     else:
         model = AutoModelForSequenceClassification.from_pretrained(
             path, num_labels=num_labels
