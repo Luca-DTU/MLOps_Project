@@ -1,9 +1,9 @@
 data : 
   seed : 69
   # train_size max 650000
-  train_size : 100000
+  train_size : 650000
   # test_size max 50000
-  test_size : 10000
+  test_size : 50000
   input_filepath : data/raw
   output_filepath : data/processed
 model : 
@@ -16,8 +16,13 @@ model :
   logging_steps : 10
   eval_accumulation_steps : 1
   eval_steps : 50
-  evaluation_strategy : "steps"
-  logging_strategy : "steps"
+  evaluation_strategy : steps
+  logging_strategy : steps
+predict :
+  model_path : models/pre_trained
+  save_path : predictions
+  size : 10
+  seed : 42
 
 
 hydra:
