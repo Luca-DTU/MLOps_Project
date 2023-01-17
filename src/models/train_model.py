@@ -13,6 +13,7 @@ import os
 from src.data.make_dataset import yelp_dataset
 from src.models.model import transformer
 
+
 cfg = omegaconf.OmegaConf.load("conf/config.yaml")
 
 
@@ -29,7 +30,7 @@ def compute_metrics(eval_pred):
 @hydra.main(config_path=os.path.join(os.getcwd(), "conf"), config_name="config.yaml")
 def load_training_cfg(cfg):
     info = cfg.model
-    training_args = TrainingArguments(None, **info)
+    training_args = TrainingArguments(**info)
     return training_args
 
 
@@ -60,7 +61,7 @@ def main():
     # Download the pretrained model
     model = transformer("models/pre_trained").to(device)
     # load training configuration from cfg file
-    training_args = load_training_cfg()
+    training_args = load_training_cfg(cfg)
 
     # Define trainer
     trainer = Trainer(
@@ -73,7 +74,7 @@ def main():
 
     # Train!
     trainer.train()
-    trainer.save_model("models/experiments")
+    #trainer.save_model("models/experiments")
 
 
 if __name__ == "__main__":

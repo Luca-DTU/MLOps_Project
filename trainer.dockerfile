@@ -1,4 +1,5 @@
 # Base image
+# Tunes the Huggingface pretrained network
 FROM python:3.9-slim
 # install python
 RUN apt update && \
@@ -8,7 +9,7 @@ RUN apt update && \
 COPY requirements.txt requirements.txt
 COPY setup.py setup.py
 COPY src/ src/
-COPY data/ data/
+COPY data/processed data/processed
 COPY models/ models/
 COPY conf/ conf/
 
