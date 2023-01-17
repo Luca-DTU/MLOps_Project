@@ -21,8 +21,9 @@ model :
 predict :
   model_path : models/pre_trained
   save_path : predictions
-  size : 10
+  size : 100
   seed : 42
+  batch_size : 8
 
 
 hydra:

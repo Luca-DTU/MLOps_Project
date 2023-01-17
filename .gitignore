@@ -92,3 +92,5 @@ target/
 /outputs
 /wandb
 /tmp_trainer
+/predictions
+/test_trainer

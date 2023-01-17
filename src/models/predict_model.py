@@ -15,12 +15,13 @@ def predict_model(cfg):
     input_filepath = cfg.data.input_filepath
     output_filepath = cfg.data.output_filepath
     path = cfg.predict.model_path
+    per_device_eval_batch_size = cfg.predict.batch_size
 
     test_args = TrainingArguments(
         output_dir="test_trainer",
         do_train=False,
         do_predict=True,
-        per_device_eval_batch_size=8,
+        per_device_eval_batch_size=per_device_eval_batch_size,
         dataloader_drop_last=False
     )
 
@@ -45,13 +46,16 @@ def predict_model(cfg):
     trainer.save_metrics("predict", metrics)
 
     predictions = np.argmax(predictions, axis=1)
-    output_predict_file = os.path.join(os.getcwd(), cfg.predict.save_path, "predictions.txt")
+    output_predict_folder = os.path.join(os.getcwd(), cfg.predict.save_path)
+    output_predict_file = os.path.join(output_predict_folder, "predictions.txt")
     if trainer.is_world_process_zero():
+        if not os.path.exists(output_predict_folder):
+            os.makedirs(output_predict_folder)
         with open(output_predict_file, "w") as writer:
             writer.write("index\tprediction\n")
             for index, item in enumerate(predictions):
                 print(f"{index}\t{item}\t{labels[index]}")
-                writer.write(f"{index}\t{item}\n")
+                writer.write(f"{index}\t{item}\t{labels[index]}\n")
 
 
 predict_model()
