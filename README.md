@@ -11,16 +11,15 @@ Poul Gunnar Pii Svane s153529 \
 Andreas With Aspe s174107
 
 ### Overall goal of the project
-The goal of the project is to generate image captions by fine tuning the CLIP model.
+The goal of the project is to fine tune the bert-base-cased model on the yelp reviews dataset to predict the score of a review (zero to five) from the text.
 ### What framework are you going to use (Kornia, Transformer, Pytorch-Geometrics)
 We are going to use the Transformers framework
 ### How to you intend to include the framework into your project
-The CLIP model is pre-trained and formulated by Transformers. We will initially finetune the model by further training the pre-trained model on the cocodataset to finetune it to the pictures and annotations. If possible we would also like to fully train the clip network for our given dataset, but only if there is enough time as our main focus is the operations. 
-
+The Framework is fully integrated into the project in both the data handling and the training.
 ### What data are you going to run on (initially, may change)
-We are going to run on the coco dataset, which is a comprehensive image dataset: https://cocodataset.org/
+We are going to run on the yelp reviews dataset, https://huggingface.co/datasets/yelp_review_full
 ### What deep learning models do you expect to use
-We are going to use the CLIP model: https://github.com/openai/CLIP
+We are going to use a text to text transformer model, specifically bert-base-cased: https://huggingface.co/bert-base-cased
 ## Project checklist
 
 Please note that all the lists are *exhaustive* meaning that I do not expect you to have completed very
@@ -40,8 +39,8 @@ point on the checklist for the exam.
 * [x] Setup version control for your data or part of your data
 * [ ] Construct one or multiple docker files for your code
 * [ ] Build the docker files locally and make sure they work as intended
-* [ ] Write one or multiple configurations files for your experiments
-* [ ] Used Hydra to load the configurations and manage your hyperparameters
+* [x] Write one or multiple configurations files for your experiments
+* [x] Used Hydra to load the configurations and manage your hyperparameters
 * [ ] When you have something that works somewhat, remember at some point to to some profiling and see if
       you can optimize your code
 * [x] Use Weights & Biases to log training progress and other important metrics/artifacts in your code. Additionally,
@@ -56,7 +55,7 @@ point on the checklist for the exam.
 * [x] Get some continuous integration running on the github repository
 * [x] Create a data storage in GCP Bucket for you data and preferable link this with your data version control setup
 * [ ] Create a trigger workflow for automatically building your docker images
-* [ ] Get your model training in GCP using either the Engine or Vertex AI
+* [x] Get your model training in GCP using either the Engine or Vertex AI
 * [ ] Create a FastAPI application that can do inference using your model
 * [ ] If applicable, consider deploying the model locally using torchserve
 * [ ] Deploy your model in GCP using either Functions or Run as the backend
@@ -74,4 +73,4 @@ point on the checklist for the exam.
 
 * [ ] Revisit your initial project description. Did the project turn out as you wanted?
 * [ ] Make sure all group members have a understanding about all parts of the project
-* [ ] Uploaded all your code to github
+* [x] Uploaded all your code to github
