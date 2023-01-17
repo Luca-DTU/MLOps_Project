@@ -16,8 +16,13 @@ model :
   logging_steps : 10
   eval_accumulation_steps : 1
   eval_steps : 50
-  evaluation_strategy : "steps"
-  logging_strategy : "steps"
+  evaluation_strategy : steps
+  logging_strategy : steps
+predict :
+  model_path : models/pre_trained
+  save_path : predictions
+  size : 10
+  seed : 42
 
 
 hydra:
