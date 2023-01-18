@@ -27,4 +27,6 @@ jobs:
     - name: Test with pytest
       run: |
         pip install flake8
+        pip install black
+        black .
         pytest flake8 .
