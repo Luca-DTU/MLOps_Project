@@ -92,7 +92,7 @@ be installed with `pip install click markdown`.
 >
 > Answer:
 
---- We have created a requirements.txt file which keeps track of the package dependencies that is required to run the project. So for a new team member to get started with the project the following command must be run: 'pip install -r requirements.txt'. ---
+--- We have created a requirements.txt file which keeps track of the package dependencies that is required to run the project. So for a new team member to get started with the project the following command must be run: 'pip install -r requirements.txt'. We have created the requirements file by autogeneration from our conda environment using the command 'conda list -e > requirements.txt'. This command scans our conda environment and fills out the requirements file with the packages one need to create the same environment. Therefore it is nice to work with conda since it is easy to create requirement files like this.---
 
 ### Question 5
 
@@ -107,7 +107,7 @@ be installed with `pip install click markdown`.
 > *experiments.*
 > Answer:
 
---- We initialized the project with the cookiecutter structure. We have filled out the src/data/ folder by completing the 'make_dataset.py' file and also filled out the src/models folder by completing the 'model.py', 'predict_model.py' and 'train_model.py' files. We have also added new folders like '.github', '.dvc' and 'conf'. .github takes care of unittesting and workflows, '.dvc' specifies the setup for the dvc and push/pulling data and lastly the 'conf' folder takes care of the configuration file for running the project. ---
+--- We initialized the project with the cookiecutter structure. We have filled out the src/data/ folder by completing the 'make_dataset.py' file and also filled out the src/models folder by completing the 'model.py', 'predict_model.py' and 'train_model.py' files. We have also added new folders like '.github', '.dvc' and 'conf'. .github takes care of unittesting and workflows, '.dvc' specifies the setup for the dvc and push/pulling data and lastly the 'conf' folder takes care of the configuration file for running the project. We do have some empty folders which we could delete but we have kept them in case we suddenly would use them. ---
 
 ### Question 6
 
@@ -118,7 +118,7 @@ be installed with `pip install click markdown`.
 >
 > Answer:
 
---- question 6 fill here ---
+--- Yes we have used flake8 and black to ensure we use a beautiful format and that all of our code looks the same. We have implemented these tools in the workflow files such that when we push/pull the code will automatically be updated to correct flake8 and black format. These concepts matter since people code in different ways and if you work with a lot of people it is important you can understand others code. Tools like flake8 and black helps you understand other peoples code. ---
 
 ## Version control
 
