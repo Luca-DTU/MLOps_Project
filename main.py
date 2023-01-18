@@ -22,14 +22,9 @@ def root():
     }
     return response
 
-def tokenize_function(string : str):
+def process_string(string:str):
     tokenizer = AutoTokenizer.from_pretrained("bert-base-cased")  # Load tokenizer
-    return tokenizer(string, padding="max_length", truncation=True)
-
-
-def process_string(string):
-    tokenized_string = tokenize_function(string)
-    
+    tokenized_string  =  tokenizer([string], padding="max_length", truncation=True, return_tensors='pt')
     return tokenized_string
 
 def predict(model,processed_string):
