@@ -38,8 +38,15 @@ def store_predictions(string,output):
     if not os.path.exists(output_predict_folder):
         os.makedirs(output_predict_folder)
     dict_obj = {string : output}
-    with open(output_predict_file, "w") as outfile:
-        json.dump(dict_obj, outfile)
+    try:
+        with open(output_predict_file, "r") as outfile:
+            data = json.load(outfile)
+            data.update(dict_obj)
+        with open(output_predict_file,"w") as outfile:
+            json.dump(data,outfile)
+    except json.decoder.JSONDecodeError as e:
+        with open(output_predict_file, "w") as outfile:
+            json.dump(dict_obj, outfile)
     
 
 @app.get("/input")
@@ -47,7 +54,7 @@ def read_string(string: str):
     # check if string is within a number of characters
     length = len(string)
     if length > len_max:
-        return f"The input is too long, please pass a smaller input, the character limit is {len_max}"
+        return f"The input is too long, please pass a smaller input, the character limit is {len_max}, got {length}"
     # standard API process
     model = transformer(path)
     output = predict(model,string)
