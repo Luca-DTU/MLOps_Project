@@ -1,5 +1,5 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/platinum-snow-374309/mlopsproject', '.']
+  args: ['build', '-t', 'gcr.io/ultra-complex-374311/train_image', '.']
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/platinum-snow-374309/mlopsproject']
+  args: ['push', 'gcr.io/ultra-complex-374311/train_image']
