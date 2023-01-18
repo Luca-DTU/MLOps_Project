@@ -31,8 +31,9 @@ point on the checklist for the exam.
 * You have two options: 
   * If you're authenticated on gcp pull the data and the trained model by running 'dvc pull'
   * Or, create the data by running 'make data' and 'make train'
+* To spin up a docker container, create a docker image by using the 'triggerDeployment.dockerfile'
 ## Run in cloud
-* Create docker image by running 'triggerDeployment.dockerfile'
+* To spin up a docker container, create a docker image by running 'triggerDeployment.dockerfile'
 
 ### Week 1
 
