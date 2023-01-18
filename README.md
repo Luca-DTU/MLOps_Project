@@ -38,7 +38,7 @@ point on the checklist for the exam.
 * [ ] Do a bit of code typing and remember to document essential parts of your code
 * [x] Setup version control for your data or part of your data    
 * [x] Construct one or multiple docker files for your code
-* [ ] Build the docker files locally and make sure they work as intended
+* [x] Build the docker files locally and make sure they work as intended
 * [x] Write one or multiple configurations files for your experiments
 * [x] Used Hydra to load the configurations and manage your hyperparameters
 * [ ] When you have something that works somewhat, remember at some point to to some profiling and see if
