@@ -1,9 +1,5 @@
 FROM python:3.9-slim
 
-EXPOSE $PORT
-
-WORKDIR /app
-
 RUN apt-get update && apt-get install -y \
     build-essential \
     software-properties-common \
@@ -11,14 +7,13 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt requirements.txt
+COPY setup.py setup.py
+COPY src/ src/
 COPY conf/ conf/
 COPY models/ models/
 COPY main.py main.py
 
-
-RUN pip install fastapi
-RUN pip install pydantic
-RUN pip install uvicorn
+WORKDIR /
 RUN pip install -r requirements.txt --no-cache-dir
 
-CMD exec uvicorn main:app --port $PORT --host 0.0.0.0 --workers 1
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]
