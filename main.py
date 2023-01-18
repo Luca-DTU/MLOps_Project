@@ -5,7 +5,10 @@ import omegaconf
 import numpy as np
 import os
 import json
+from transformers import TextClassificationPipeline
 from transformers import AutoTokenizer
+import torch
+
 app = FastAPI()
 cfg = omegaconf.OmegaConf.load("conf/config.yaml")
 len_max = cfg.predict.len_max
@@ -22,14 +25,11 @@ def root():
     }
     return response
 
-def process_string(string:str):
-    tokenizer = AutoTokenizer.from_pretrained("bert-base-cased")  # Load tokenizer
-    tokenized_string  =  tokenizer([string], padding="max_length", truncation=True, return_tensors='pt')
-    return tokenized_string
 
-def predict(model,processed_string):
-    raw_out = model(processed_string)
-    out = np.argmax(raw_out, axis=1)
+def predict(model,string):
+    tokenizer = AutoTokenizer.from_pretrained("bert-base-cased")  # Load tokenizer
+    pipe = TextClassificationPipeline(model=model, tokenizer=tokenizer)
+    out = pipe(string)
     return out
 
 def store_predictions(string,output):
@@ -49,9 +49,8 @@ def read_string(string: str):
     if length > len_max:
         return f"The input is too long, please pass a smaller input, the character limit is {len_max}"
     # standard API process
-    processed_string = process_string(string)
     model = transformer(path)
-    output = predict(model,processed_string)
+    output = predict(model,string)
     store_predictions(string,output)
     return output
 

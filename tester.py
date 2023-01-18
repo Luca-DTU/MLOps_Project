@@ -22,8 +22,6 @@ model = transformer("models/pre_trained").to(device)
 from transformers import TextClassificationPipeline
 pipe = TextClassificationPipeline(model=model, tokenizer=tokenizer, return_all_scores=True)
 
-pdb.set_trace()
-
 test_args = TrainingArguments(
         output_dir="test_trainer",
         do_train=False,
