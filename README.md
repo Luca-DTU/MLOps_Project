@@ -26,9 +26,11 @@ Please note that all the lists are *exhaustive* meaning that I do not expect you
 point on the checklist for the exam.
 
 # Usage
+* First, clone this repository.
 ## Run locally
-* You have two options: pull from dvc by 'dvc pull' or you can create the data by running 'make data'
-* Create docker image by running 'trainer.dockerfile'
+* You have two options: 
+** If you're authenticated on gcp pull the data and the trained model by running 'dvc pull'
+** Or, create the data by running 'make data' and 'make train'
 ## Run in cloud
 * Create docker image by running 'triggerDeployment.dockerfile'
 
