@@ -43,9 +43,9 @@ if os.path.exists(_PATH_DATA+"/processed"):
 @processed_there
 def test_processed_data_shapes():
     """Test if the shape of the train data is as expected"""
-    assert train_p.data.shape == (1000, 5)
+    assert train_p.data.shape == (650000, 5)
     """Test if the shape of the test data is as expected"""
-    assert test_p.data.shape == (1000, 5)
+    assert test_p.data.shape == (50000, 5)
 
 ## test the range of data for the processed data
 @processed_there
