@@ -25,6 +25,13 @@ We are going to use a text to text transformer model, specifically bert-base-cas
 Please note that all the lists are *exhaustive* meaning that I do not expect you to have completed very
 point on the checklist for the exam.
 
+# Usage
+## Run locally
+* You have two options: pull from dvc by 'dvc pull' or you can create the data by running 'make data'
+* Create docker image by running 'trainer.dockerfile'
+## Run in cloud
+* Create docker image by running 'triggerDeployment.dockerfile'
+
 ### Week 1
 
 * [x] Create a git repository
