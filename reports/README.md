@@ -49,7 +49,7 @@ be installed with `pip install click markdown`.
 >
 > Answer:
 
---- question 1 fill here ---
+--- 28 ---
 
 ### Question 2
 > **Enter the study number for each member in the group**
@@ -60,7 +60,7 @@ be installed with `pip install click markdown`.
 >
 > Answer:
 
---- question 2 fill here ---
+--- s220647, s174477, s214129, s153529, s174107 ---
 
 ### Question 3
 > **What framework did you choose to work with and did it help you complete the project?**
@@ -73,7 +73,7 @@ be installed with `pip install click markdown`.
 >
 > Answer:
 
---- question 3 fill here ---
+--- We have used the hugginface framework which turned out to be a nice framwork to work with. It was usefull when we created the fastApi since a wrapper named 'TextClassificationPipeline' could take in a tokenizer and a model and then predict based on a string-input. This way we avoided to do complicated data set-up which the model would require to run. Moreover.... ---
 
 ## Coding environment
 
@@ -92,7 +92,7 @@ be installed with `pip install click markdown`.
 >
 > Answer:
 
---- question 4 fill here ---
+--- We have created a requirements.txt file which keeps track of the package dependencies that is required to run the project. So for a new team member to get started with the project the following command must be run: 'pip install -r requirements.txt'. ---
 
 ### Question 5
 
