@@ -1,5 +1,5 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/ultra-complex-374311/train_image', '.']
+  args: ['build', '-f', 'triggerDeployment.dockerfile', '-t', 'gcr.io/ultra-complex-374311/train_image', '.']
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/ultra-complex-374311/train_image']
