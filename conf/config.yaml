@@ -19,11 +19,12 @@ model :
   evaluation_strategy : steps
   logging_strategy : steps
 predict :
-  model_path : models/pre_trained
+  model_path : models/experiments
   save_path : predictions
   size : 100
   seed : 42
   batch_size : 8
+  len_max : 150
 
 
 hydra:
