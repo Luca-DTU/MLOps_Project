@@ -1,9 +1,20 @@
-model = ()
+from src.models.model import Transformer
+
+model = Transformer()
 devices = ["cpu", "CUDA"]
-for dev in devices:
-    assert model.device == dev, "device is not recognized"
+
+def test_device():
+    assert model.device in devices, "device is not recognized"
+
 num_labels = 5
-assert model.num_labels == num_labels, "model output does not match expected"
-assert model.__sizeof__() == 32, "size of model misshapen"
-assert model.parameters().__sizeof__() == 96, "wrong number of parameters"
-assert model.get_input_embeddings().embedding_dim == 0, "input is misshapen"
+
+def test_num_labels():
+    assert model.num_labels == num_labels, "num_labels is not recognized"
+
+
+def test_size():
+    assert model.__sizeof__() == 32, "size of model misshapen"
+    assert model.parameters().__sizeof__() == 96, "wrong number of parameters"
+
+def test_input_embeddings():
+    assert model.get_input_embeddings().embedding_dim == 768, "input is misshapen"
