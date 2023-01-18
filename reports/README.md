@@ -107,7 +107,7 @@ be installed with `pip install click markdown`.
 > *experiments.*
 > Answer:
 
---- question 5 fill here ---
+--- We initialized the project with the cookiecutter structure. We have filled out the src/data/ folder by completing the 'make_dataset.py' file and also filled out the src/models folder by completing the 'model.py', 'predict_model.py' and 'train_model.py' files. We have also added new folders like '.github', '.dvc' and 'conf'. .github takes care of unittesting and workflows, '.dvc' specifies the setup for the dvc and push/pulling data and lastly the 'conf' folder takes care of the configuration file for running the project. ---
 
 ### Question 6
 
