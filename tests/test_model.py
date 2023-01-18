@@ -1,6 +1,6 @@
-from src.models.model import Transformer
+from src.models.model import transformer
 
-model = Transformer()
+model = transformer()
 devices = ["cpu", "CUDA"]
 
 def test_device():

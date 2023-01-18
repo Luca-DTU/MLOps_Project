@@ -9,11 +9,8 @@ RUN apt update && \
 COPY requirements.txt requirements.txt
 COPY setup.py setup.py
 COPY src/ src/
-COPY data/processed data/processed
-COPY models/ models/
 COPY conf/ conf/
 
 WORKDIR /
 RUN pip install -r requirements.txt --no-cache-dir
 ENTRYPOINT ["python", "-u", "src/models/train_model.py"]
-

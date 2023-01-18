@@ -17,3 +17,6 @@ transformers==4.25.1
 fastapi
 pydantic
 uvicorn
+dvc==2.39.0
+scikit-learn==1.1.3
+
