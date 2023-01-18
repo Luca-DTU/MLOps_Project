@@ -30,6 +30,7 @@ predict :
   save_path : predictions
   size : 16
   seed : 42
+  batch_size : 8
 
 
 hydra:
