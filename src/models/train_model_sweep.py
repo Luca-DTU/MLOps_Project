@@ -9,12 +9,16 @@ from transformers import TrainingArguments, Trainer
 import omegaconf
 import hydra
 import os
-
 from src.data.make_dataset import yelp_dataset
 from src.models.model import transformer
+import wandb
 
 
-cfg = omegaconf.OmegaConf.load("conf/config.yaml")
+cfg = omegaconf.OmegaConf.load("conf/sweep_config.yaml")
+sweep_id = wandb.sweep(cfg, project='huggingface_sweep')
+
+wandb.init(config=cfg)
+wandb.agent(sweep_id, count=10)
 
 
 # Define metric function
@@ -25,14 +29,11 @@ def compute_metrics(eval_pred):
     predictions = np.argmax(logits, axis=-1)
     return metric.compute(predictions=predictions, references=labels)
 
-
 # Define training arguments
-#@hydra.main(config_path=os.path.join(os.getcwd(), "conf"), config_name="config.yaml")
 def load_training_cfg(cfg):
     info = cfg.model
     training_args = TrainingArguments(**info)
     return training_args
-
 
 def main():
     seed = cfg.data.seed
