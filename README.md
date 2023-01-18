@@ -25,14 +25,14 @@ We are going to use a text to text transformer model, specifically bert-base-cas
 Please note that all the lists are *exhaustive* meaning that I do not expect you to have completed very
 point on the checklist for the exam.
 
-# Usage
+## Usage
 * First, clone this repository.
-## Run locally
+### Run locally
 * You have two options: 
   * If you're authenticated on gcp pull the data and the trained model by running 'dvc pull'
   * Or, create the data by running 'make data' and 'make train'
 * To spin up a docker container, create a docker image by using the 'triggerDeployment.dockerfile'
-## Run in cloud
+### Run in cloud
 * To spin up a docker container, create a docker image by running 'triggerDeployment.dockerfile'
 
 ### Week 1
