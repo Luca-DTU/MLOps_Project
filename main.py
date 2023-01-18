@@ -47,7 +47,11 @@ def store_predictions(string,output):
     except json.decoder.JSONDecodeError as e:
         with open(output_predict_file, "w") as outfile:
             json.dump(dict_obj, outfile)
-    
+    except FileNotFoundError:
+        os.mknod(output_predict_file)
+        with open(output_predict_file, "w") as outfile:
+            json.dump(dict_obj, outfile)
+
 
 @app.get("/input")
 def read_string(string: str):
