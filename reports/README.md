@@ -300,7 +300,7 @@ At the first picture below we can see a screenshot of a hyperparameter sweep. We
 >
 > Answer:
 
---- We have used cloud build, cloud bucket, container registry, cloud vertex ai. Cloud build is a service where we can set up a trigger connected to a github repo that can automatically build a container each time a person pushes to the repo. The bucket is a service where one can store data. The registry is a service where you can find your containers. Vertex ai is a deployment interface where you can run containers within the cloud- it creates a virtual machine and runs a container. Furthermore we also used cloud run to deploy our fastAPI for using the trained model for perdicting ratings for food reviews. ---
+--- We have used cloud build, cloud bucket, container registry, cloud vertex ai. Cloud build is a service where we can set up a trigger connected to a github repo that can automatically build a container each time a person pushes to the repo. The bucket is a service where one can store data. The registry is a service where you can find your images. Vertex ai is a deployment interface where you can run containers within the cloud- it creates a virtual machine and runs a container. Furthermore we also used cloud run to deploy our fastAPI for using the trained model for perdicting ratings for food reviews. ---
 
 ### Question 18
 
@@ -451,6 +451,6 @@ So after spending too much time on the model, we reset our priorities on the MLO
 
 s174477: developed the fastApi code and then created the dockerfile to convert the fastapi to an image and then pushed it to the cloud. Also worked on the config file and the workflows.
   
-s214129: Set up test code for male_dataset.py and model.py. Set up workflow for testing. Set up gcp container for training the model with CPU. Set up cloudbuild. running coverage on test.
+s214129: Set up test code for make_dataset.py and model.py. Set up workflow for testing. Set up gcp container for training the model with CPU. Set up cloudbuild. running coverage on test.
 
 ---
