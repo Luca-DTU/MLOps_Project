@@ -307,7 +307,7 @@ In this group we are using VS code and Pycharm and we have used the built-in deb
 >
 > Answer:
 
---- question 17 fill here ---
+We have used cloud build, cloud bucket, container registry, cloud vertex ai. Cloud build is a service where we can set up a trigger connected to a github repo that can automatically build a container each time a person pushes to the repo. The bucket is a service where one can store data. The registry is a service where you can find your containers. Vertex ai is a deployment interface where you can run containers within the cloud- it creates a virtual machine and runs a container.
 
 ### Question 18
 
@@ -322,7 +322,7 @@ In this group we are using VS code and Pycharm and we have used the built-in deb
 >
 > Answer:
 
---- question 18 fill here ---
+We used the compute engine through the vertex ai with a pytorch setup. We trained our virtual machine through vertex ai with CPU however we stopped it since it took too long. We also implemented to run with GPU but we encountered a domain issue which will take some time to fix.
 
 ### Question 19
 
