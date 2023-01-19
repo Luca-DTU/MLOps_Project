@@ -73,7 +73,7 @@ be installed with `pip install click markdown`.
 >
 > Answer:
 
---- We have used the hugginface framework which turned out to be a nice framwork to work with. It was usefull when we created the fastApi since a wrapper named 'TextClassificationPipeline' could take in a tokenizer and a model and then predict based on a string-input. This way we avoided to do complicated data set-up which the model would require to run. Moreover.... ---
+--- We have used the hugginface transformers framework which reduced the amount of Boilerplate in the codebase and offered a lot of ad hoc integration with external software. For example it logged experiments to weights & biases by default. Another example of a very noticeable reduction in boilerplate is in the inference part of the project, it was useful when we created the fastApi since a wrapper named 'TextClassificationPipeline' could take in a tokenizer and a model and then predict based on a string-input directly in one line of code. This way we avoided to do complicated data set-up which the model would require to run. Moreover we used the trainer class to train the model. ---
 
 ## Coding environment
 
