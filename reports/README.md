@@ -423,8 +423,9 @@ In any case we do store the historical predictions given by the API in a json fi
 >
 > Answer:
 
---- We started off with a model and project that was a little bit too complicated and we where struggling in the first few days to just get it running.
-We originally wanted to fine tune a CLIP model, which as a multi-modal has more complexity than a standard text-to-text ---
+--- We started off with a model and project that was a little bit too complicated and we where struggling in the first few days to just get it running and especially to understand the structure of the image - caption dataset.
+We originally wanted to fine tune a CLIP model, which as a multi-modal has more complexity than a standard text-to-text model.
+So after spending too much time on the model, we reset our priorities on the MLOps part and took the simpler model that we ended up with, which still presented some challenges mainly in using all of these tools that were new to us. Going through the documentation, stackoverflow and chatGPT was however the winning strategy to overcome these problems. ---
 
 ### Question 27
 
