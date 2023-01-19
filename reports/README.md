@@ -331,7 +331,7 @@ We used the compute engine through the vertex ai with a pytorch setup. We traine
 >
 > Answer:
 
---- question 20 fill here ---
+![Alt text](figures/gcp_registry.png?raw=true "gcp_registry")
 
 ### Question 21
 
@@ -340,7 +340,7 @@ We used the compute engine through the vertex ai with a pytorch setup. We traine
 >
 > Answer:
 
---- question 21 fill here ---
+![Alt text](figures/cloudbuild_history.png?raw=true "cloudbuild_history")
 
 ### Question 22
 
