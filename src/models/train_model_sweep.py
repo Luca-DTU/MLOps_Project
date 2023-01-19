@@ -22,10 +22,7 @@ sweep_config = {
 # hyperparameters
 parameters_dict = {
     'epochs': {
-        'value': 3
-        },
-    'batch_size': {
-        'values': [8, 16, 32, 64]
+        'value': 2
         },
     'learning_rate': {
         'distribution': 'log_uniform_values',
@@ -34,9 +31,6 @@ parameters_dict = {
     },
     'weight_decay': {
         'values': [0.0, 0.1, 0.2, 0.3, 0.4, 0.5]
-    },
-    'per_device_train_batch_size': {
-        'values': [16, 32, 64, 128, 256]
     }
 }
 
@@ -65,7 +59,8 @@ def load_training_sweep(config):
         num_train_epochs=config.epochs,
         learning_rate=config.learning_rate,
         weight_decay=config.weight_decay,
-        per_device_train_batch_size=config.per_device_train_batch_size,
+        eval_accumulation_steps = 10,
+        eval_steps = 10,
         save_strategy='steps',
         evaluation_strategy='steps',
         logging_strategy='steps'
