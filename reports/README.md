@@ -132,7 +132,7 @@ We have a few dockerfiles, yaml files for the Vertex AI runs a main.py inference
 >
 > Answer:
 
---- question 7 fill here ---
+--- We have created 9 test unit test for this project- 4 tests that check the data and 5 tests that check the model. The data tests we have implemented checks if the data folder exists, if the preprocessed data exists, if the shape of the data is correct and check if the data consists of 26 characters. For the model tests we check the device if its cuda or CPU, if we have labels, the size of the model and the model embeddings.   ---
 
 ### Question 8
 
