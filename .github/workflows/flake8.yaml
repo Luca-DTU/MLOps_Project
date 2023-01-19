@@ -46,9 +46,3 @@ jobs:
         pip install flake8
         flake8 .
 
-    - name: Upload coverage
-      if: always()
-      uses: actions/upload-artifact@v2
-      with:
-        name: flake8-report
-        path: flake8.txt
