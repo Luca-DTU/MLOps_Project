@@ -200,7 +200,7 @@ We were however not fully using the potentialities of dvc since in the creation 
 >
 > Answer:
 
---- We have constructed 3 workflow files flake8, isort, and tests. We have thus integrated a continuous integration setup where we test the code for structure, we test some of the essential scripts for producing expected outputs, and isort to sort the imports. We do test multiple operating systems, namely the latest versions of macos, ubuntu and windows. We also cached our packages and run our workflows on four different Python versions. You can check out our workflows https://github.com/Luca-DTU/MLOps_Project/actions. ---
+--- We have constructed 3 workflow files for flake8, isort, and tests. We have thus integrated a continuous integration setup where we test the code for structure, we test some of the essential scripts for producing expected outputs, and isort to sort the imports. We do test multiple operating systems, namely the latest versions of macos, ubuntu and windows. We also cached our packages and run our workflows on four different Python versions (3.8 and 3.9). You can check out our workflows https://github.com/Luca-DTU/MLOps_Project/actions. We have not managed to solve the integration of the data handling through dvc in the workflows to be able to succesfully run the unit tests in time for the presentation so right now the unit tests workflow just fail everytime. ---
 
 ## Running code and tracking experiments
 
