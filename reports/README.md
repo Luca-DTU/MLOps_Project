@@ -209,8 +209,7 @@ We were however not fully using the potentialities of dvc since in the creation 
 >
 > Answer:
 
---- We have constructed 3 workflow files flake8, isort, and tests. We have thus integrated a continuous integration setup where we test the code for structure, we test some of the essential scripts for producing expected outputs, and isort to sort the imports. We do not test multiple operating systems, which in hindsight would have been smart to do. However given that all windows users use WSL and we deploy the model in google cloud platform, this should not raise any issues. If the model was deployed locally, it would be beneficial to test for operating systems.
-Furthermore, we did not utilize cache and did not perform checks for python version. Chache was not implemented as our workflow files were fast to run so we deemed it unnecessary at the current stage. We did not check for multiple python versions as ... ---
+--- We have constructed 3 workflow files flake8, isort, and tests. We have thus integrated a continuous integration setup where we test the code for structure, we test some of the essential scripts for producing expected outputs, and isort to sort the imports. We do test multiple operating systems, namely the latest versions of macos, ubuntu and windows. We also cached our packages and run our workflows on four different Python versions. You can check out our workflows https://github.com/Luca-DTU/MLOps_Project/actions.
 
 ## Running code and tracking experiments
 
