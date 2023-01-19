@@ -372,7 +372,9 @@ We used the compute engine through the vertex ai with a pytorch setup. We traine
 >
 > Answer:
 
---- question 23 fill here ---
+--- We did not get so far as to implement any monitoring. Our project involves the prediction of the number of stars in a restaurant review given the review text.
+There is not so much that actually changes over time for the kind of problem that we deal with. There could be some minor data drifting related to generational slang and overall how a language evolves in time. This however is far beyond the time scope that this project might take and we don't think it is too relevant.
+In any case we do store the historical predictions given by the API in a json file within the deployed container, so that if someone would need to analyse that, there would be the option.  ---
 
 ### Question 24
 
@@ -421,7 +423,8 @@ We used the compute engine through the vertex ai with a pytorch setup. We traine
 >
 > Answer:
 
---- question 26 fill here ---
+--- We started off with a model and project that was a little bit too complicated and we where struggling in the first few days to just get it running.
+We originally wanted to fine tune a CLIP model, which as a multi-modal has more complexity than a standard text-to-text ---
 
 ### Question 27
 
