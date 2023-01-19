@@ -322,7 +322,8 @@ We used the compute engine through the vertex ai with a pytorch setup. We traine
 >
 > Answer:
 
---- question 19 fill here ---
+
+![Alt text](figures/gcp_bucket.png?raw=true "gcp_bucket")
 
 ### Question 20
 
