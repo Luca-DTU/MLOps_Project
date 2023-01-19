@@ -357,9 +357,7 @@ We used the compute engine through the vertex ai with a pytorch setup. We traine
 >
 > Answer:
 
---- 
-We managed to deploy the model both locally and in the cloud. First we wanted to make sure that the deployment worked locally before we pushed it to the cloud. When we got it to work locally we pushed to the cloud and it worked there. The deployment are based on a docker image of our fastApi. That image is then stored in google cloud container registry and the google cloud run invokes the image. Entering this link https://fastapi-test-nprrq6fuhq-ew.a.run.app/ you can add '/docs' to the url which will send you to fastApi interface. Here you can send request to the model and it will return either an error or a succcesful prediction.
- ---
+--- We managed to deploy the model both locally and in the cloud. First we wanted to make sure that the deployment worked locally before we pushed it to the cloud. When we got it to work locally we pushed to the cloud and it worked there. The deployment are based on a docker image of our fastApi. That image is then stored in google cloud container registry and the google cloud run invokes the image. Entering this link https://fastapi-test-nprrq6fuhq-ew.a.run.app/ you can add '/docs' to the url which will send you to fastApi interface. Here you can send request to the model and it will return either an error or a succcesful prediction. ---
 
 ### Question 23
 
