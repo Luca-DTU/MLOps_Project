@@ -388,7 +388,8 @@ In any case we do store the historical predictions given by the API in a json fi
 >
 > Answer:
 
---- The bucket ended up costing 0.47 Euro, the Cloud run to host the fastapi is costing 0.01 Euro and the network cost for s220647 were 0.02 Euro  ---
+--- The bucket ended up costing 0.47 Euro, the Cloud run to host the fastapi is costing 0.01 Euro and the network cost for s220647 were 0.02 Euro .
+The user that set up the training runs is running into some IT problems right now and cannot see the cost, but he remembers it was around 2 Euros.---
 
 ## Overall discussion of project
 
@@ -442,4 +443,6 @@ So after spending too much time on the model, we reset our priorities on the MLO
 >
 > Answer:
 
---- question 27 fill here ---
+---s220647: Set up git repo, set up gcp bucket, set up dvc, set up deployment in fast api and docker and cloud run, set up github workflows, set up hydra configuation set up cloudbuild, contributed in code in src.
+
+---
