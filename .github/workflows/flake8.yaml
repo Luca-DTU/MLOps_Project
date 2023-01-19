@@ -9,15 +9,16 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
-
+    runs-on: [ubuntu-latest, windows-latest, macos-latest]
+    strategy:
+      matrix:
+        python-version: [3.8, 3.9, 3.10]
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-    - name: Set up Python 3.9
+    - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: 3.9
         cache: 'pip'
     - name: Install dependencies
       run: |
