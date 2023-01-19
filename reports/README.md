@@ -132,9 +132,10 @@ We have a few dockerfiles, yaml files for the Vertex AI runs a main.py inference
 >
 > Answer:
 
---- We have created 9 test unit test for this project, 4 tests that check the data and 5 tests that check the model. The data tests we have implemented check if the data folder exists, if the preprocessed data exists, if the shape of the data is correct and check and if the data consists of at least 26 characters. For the model tests we check whether the device is cuda or CPU, have labels, the size of the model and the model embeddings. 
+--- 
+We have created 9 test unit test for this project, 4 tests that check the data and 5 tests that check the model. The data tests we have implemented check if the data folder exists, if the preprocessed data exists, if the shape of the data is correct and check and if the data consists of at least 26 characters. For the model tests we check whether the device is cuda or CPU, have labels, the size of the model and the model embeddings. 
 We have implemented the tests in github workflows.
-  ---
+---
 
 ### Question 8
 
@@ -149,7 +150,11 @@ We have implemented the tests in github workflows.
 >
 > Answer:
 
---- question 8 fill here ---
+--- 
+The total code coverage is 66% as reported by running the coverage report, which is far from 100%.  
+If we had a 100% coverage we would have no reason to believe that our code would be error free, the reason for this are multiple.
+The tests can cover all of the code but at the same time not pass, even if everything passed, the tests could just be "bad" tests and not really cover every aspect or every relation between the objects. Moreover the data can be corrupted and the tests on the code would not be able to catch it.
+---
 
 ### Question 9
 
@@ -164,7 +169,13 @@ We have implemented the tests in github workflows.
 >
 > Answer:
 
---- question 9 fill here ---
+--- 
+We exploited the potential of git extensively by using branches and pull requests for our personal work and when working together on larger subprojects.
+An example of how we did that is when towards the end of the project we separated in two subgroups and consequently in two branches to work on the deployment part and on setting up the training on google cloud computing platform.
+We have been consistent in committing frequently to minimize the merge conflicts. 
+What we haven't done however and realized later it would have been a good approach is to use branches in the data versioning control, where we only worked in the master branch.
+
+---
 
 ### Question 10
 
@@ -179,7 +190,10 @@ We have implemented the tests in github workflows.
 >
 > Answer:
 
---- question 10 fill here ---
+--- 
+As mentioned above we have used data versioning control on our data and on our model, which was very beneficial for sharing the correct version of the data and making sure that we all had access to the same subset and version of both the raw and the processed data. Similarly we stored our models in dvc which allowed us to store the pretrained model and to make sure that we were all using the same fine-tuned model (i.e. from the same training run).
+We were however not fully using the potentialities of dvc since in the creation of docker images we just used the versions defined at the time instead of setting up the log in to gcp and the pull of the data. Moreover one member never actually managed to get access to our remote bucket using dvc and had to store the data locally.
+---
 
 ### Question 11
 
