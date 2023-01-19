@@ -275,7 +275,7 @@ We made a config.yaml file and integrated this with hydra. However, we decided t
 >
 > Answer:
 
---- question 15 fill here ---
+For our project we used docker a couple of times. We created a docker image and build a container for traning locally on a GPU. Moreover we also used docker in the deployment phase of the project where we created a fastApi. We build an image of the app-script named 'main.py' by using the command 'docker build -f triggerDeployment.dockerfile . -t fastapi-test:latest' and then we pushed this image to cloud by using the command 'docker tag fastapi-test gcr.io/<project-id>/fastapi-test' and 'docker push gcr.io/<project-id>/fastapi-test'. Then we can use the google cloud run to run the image which is now found in the google cloud container registry. A link to the docker file: gcr.io/mlops-project-374413/fastapi-test . 
 
 ### Question 16
 
