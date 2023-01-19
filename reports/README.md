@@ -290,7 +290,7 @@ For our project we used docker a couple of times. We created a docker image and 
 >
 > Answer:
 
-All of us used VS code as our IDE and we have used the built-in debugger. We also configured a launch.json when needed in order to debug a code that required arguments from the command line. We naturally also did debugging with print statements, especially in the early stage development of the code. We also used the internet a lot while running into bugs and here we often got a clue about what could be wrong, which we could use to either solve it straightaway or narrow down the problem to set breakpoints at more important places in our code. We did no do any profiling, since most of our programme is actually handled by the Huggingface framework. Therefore we expect their code to be already optimised and our own code is not very complex.
+In this group we are using VS code and Pycharm and we have used the built-in debugger for both IDE's. We also configured a launch.json in VS code when needed in order to debug a code that required arguments from the command line. We have also used set_trace with pdb. We naturally also did debugging with print statements, especially in the early stage development of the code. We also used the internet a lot while running into bugs and here we often got a clue about what could be wrong, which we could use to either solve it straightaway or narrow down the problem to set breakpoints at more important places in our code. We did no do any profiling, since most of our programme is actually handled by the Huggingface framework. Therefore we expect their code to be already optimised and our own code is not very complex.
 
 ## Working in the cloud
 
