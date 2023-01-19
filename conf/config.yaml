@@ -28,7 +28,7 @@ model :
 predict :
   model_path : models/experiments
   save_path : predictions
-  size : 16
+  size : 10
   seed : 42
   batch_size : 8
   len_max : 500

@@ -448,6 +448,7 @@ So after spending too much time on the model, we reset our priorities on the MLO
 > Answer:
 
 ---s220647: Set up git repo, set up gcp bucket, set up dvc, set up deployment in fast api and docker and cloud run, set up github workflows, set up hydra configuation set up cloudbuild, contributed in code in src.
+s153529: train_model.py, make_dataset.py, GPU integration, training run and debugging, DVC model integration, unit tests, docker train build, GCP trigger, GCP training, WandB/Hydra debugging, General Transformers setup/debugging/support
 
 s174477: developed the fastApi code and then created the dockerfile to convert the fastapi to an image and then pushed it to the cloud. Also worked on the config file and the workflows.
   
