@@ -107,7 +107,7 @@ be installed with `pip install click markdown`.
 > *experiments.*
 > Answer:
 
---- We initialized the project with the cookiecutter structure. We have filled out the src/data/ folder by completing the 'make_dataset.py' file and also filled out the src/models folder by completing the 'model.py', 'predict_model.py' and 'train_model.py' files. We have also added new folders like '.github', '.dvc' and 'conf'. .github takes care of unittesting and workflows, '.dvc' specifies the setup for the dvc and push/pulling data and lastly the 'conf' folder takes care of the configuration file for running the project. 
+--- We initialized the project with the cookiecutter structure. We have filled out the src/data/ folder by completing the 'make_dataset.py' file and also filled out the src/models folder by completing the 'model.py', 'predict_model.py', 'train_model.py' and 'train_model_sweep.py' files. We have also added new folders like '.github', '.dvc' and 'conf'. .github takes care of unittesting and workflows, '.dvc' specifies the setup for the dvc and push/pulling data and lastly the 'conf' folder takes care of the configuration file for running the project. 
 We have a few dockerfiles, yaml files for the Vertex AI runs a main.py inference file in the root directory, and we modified the makefile as well. We do have some empty folders which we could delete but we have kept them in case we suddenly would use them. ---
 
 ### Question 6
@@ -119,7 +119,7 @@ We have a few dockerfiles, yaml files for the Vertex AI runs a main.py inference
 >
 > Answer:
 
---- Yes we have used flake8 and black to ensure we use a beautiful format and that all of our code looks the same. We have implemented these tools in the workflow files such that when we push/pull the code will automatically be updated to correct flake8 and black format. These concepts matter since people code in different ways and if you work with a lot of people it is important you can understand others code. Tools like flake8 and black helps you understand other peoples code. ---
+--- Yes we have used flake8, isort and black to ensure we have a format that complies with pep8 standards and that all of our code looks the same. We have implemented these tools in the workflow files such that when we push/pull the code will automatically first run black and then test for pep8 using flake8 in one workflow and runs isort in another workflow. These concepts matter since people code in different ways and if you work with a lot of people it is important you can understand others code. Tools like flake8 and black helps you understand other peoples code. ---
 
 ## Version control
 
@@ -132,7 +132,9 @@ We have a few dockerfiles, yaml files for the Vertex AI runs a main.py inference
 >
 > Answer:
 
---- We have created 9 test unit test for this project- 4 tests that check the data and 5 tests that check the model. The data tests we have implemented checks if the data folder exists, if the preprocessed data exists, if the shape of the data is correct and check if the data consists of 26 characters. For the model tests we check the device if its cuda or CPU, if we have labels, the size of the model and the model embeddings.   ---
+--- We have created 9 test unit test for this project, 4 tests that check the data and 5 tests that check the model. The data tests we have implemented check if the data folder exists, if the preprocessed data exists, if the shape of the data is correct and check and if the data consists of at least 26 characters. For the model tests we check whether the device is cuda or CPU, have labels, the size of the model and the model embeddings. 
+We have implemented the tests in github workflows.
+  ---
 
 ### Question 8
 
