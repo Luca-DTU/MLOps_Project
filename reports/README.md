@@ -374,7 +374,9 @@ We used the compute engine through the vertex ai with a pytorch setup. We traine
 >
 > Answer:
 
---- question 23 fill here ---
+--- We did not get so far as to implement any monitoring. Our project involves the prediction of the number of stars in a restaurant review given the review text.
+There is not so much that actually changes over time for the kind of problem that we deal with. There could be some minor data drifting related to generational slang and overall how a language evolves in time. This however is far beyond the time scope that this project might take and we don't think it is too relevant.
+In any case we do store the historical predictions given by the API in a json file within the deployed container, so that if someone would need to analyse that, there would be the option.  ---
 
 ### Question 24
 
@@ -388,7 +390,8 @@ We used the compute engine through the vertex ai with a pytorch setup. We traine
 >
 > Answer:
 
---- The bucket ended up costing 0.47 Euro, the Cloud run to host the fastapi is costing 0.01 Euro and the network cost for s220647 were 0.02 Euro  ---
+--- The bucket ended up costing 0.47 Euro, the Cloud run to host the fastapi is costing 0.01 Euro and the network cost for s220647 were 0.02 Euro .
+The user that set up the training runs is running into some IT problems right now and cannot see the cost, but he remembers it was around 2 Euros.---
 
 ## Overall discussion of project
 
@@ -423,7 +426,9 @@ We used the compute engine through the vertex ai with a pytorch setup. We traine
 >
 > Answer:
 
---- question 26 fill here ---
+--- We started off with a model and project that was a little bit too complicated and we where struggling in the first few days to just get it running and especially to understand the structure of the image - caption dataset.
+We originally wanted to fine tune a CLIP model, which as a multi-modal has more complexity than a standard text-to-text model.
+So after spending too much time on the model, we reset our priorities on the MLOps part and took the simpler model that we ended up with, which still presented some challenges mainly in using all of these tools that were new to us. Going through the documentation, stackoverflow and chatGPT was however the winning strategy to overcome these problems. ---
 
 ### Question 27
 
@@ -440,4 +445,6 @@ We used the compute engine through the vertex ai with a pytorch setup. We traine
 >
 > Answer:
 
---- question 27 fill here ---
+---s220647: Set up git repo, set up gcp bucket, set up dvc, set up deployment in fast api and docker and cloud run, set up github workflows, set up hydra configuation set up cloudbuild, contributed in code in src.
+
+---
