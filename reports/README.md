@@ -444,5 +444,5 @@ So after spending too much time on the model, we reset our priorities on the MLO
 > Answer:
 
 ---s220647: Set up git repo, set up gcp bucket, set up dvc, set up deployment in fast api and docker and cloud run, set up github workflows, set up hydra configuation set up cloudbuild, contributed in code in src.
-
+s174477: developed fastApi and created dockerfile for the fastapi and deployed it in google cloud, developed on config file with workflows. 
 ---
