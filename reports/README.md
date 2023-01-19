@@ -412,7 +412,7 @@ The user that set up the training runs is running into some IT problems right no
 >
 > Answer:
 
---- question 25 fill here ---
+--- We start off looking at our local computer. From this, we initialized the project with GitHub and set up GCP and DVC. When running our code in practice we have workflow files that test our code for various properties whenever we push or pull from GitHub. The dataset is downloaded from DVC from a data bucket on our google cloud. GCP also tracks changes to our GitHub using a trigger and if accepted an image will be built. When training or sweeping hyperparameters on our local computer we write the result to weights and biases. The locally trained model is saved as a docker image but we also enable a setup for training the model using the trigger that tracks the GitHub repository and Vertex AI. The deployment of the fast-API is also saved as a docker image which is then uploaded to the GCP container registry. Furthermore, we have enabled two ways of deploying the model, both from the container registry from GCP and locally from the computer that an excited user would be able to use. ---
 
 ### Question 26
 
@@ -446,5 +446,5 @@ So after spending too much time on the model, we reset our priorities on the MLO
 > Answer:
 
 ---s220647: Set up git repo, set up gcp bucket, set up dvc, set up deployment in fast api and docker and cloud run, set up github workflows, set up hydra configuation set up cloudbuild, contributed in code in src.
-s174477: developed fastApi and created dockerfile for the fastapi and deployed it in google cloud, developed on config file with workflows. 
+
 ---
