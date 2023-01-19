@@ -19,7 +19,7 @@ sweep_config = {
     'method': 'random'
 }
 
-# hyperparameters
+# hyperparameters}
 parameters_dict = {
     'epochs': {
         'value': 2
