@@ -251,6 +251,8 @@ We were however not fully using the potentialities of dvc since in the creation 
 >
 > Answer:
 
+At the first picture below we can see a screenshot of a hyperparameter sweep. We can call this with the command 'make sweep'. We only did it on a very small subset of our data and screened for very few parameters, since it takes a long time to do hyperparameter sweeping. We chose a subset of the data consisting of only 100 observations for the training and test set respectively. We searched for optimal parameters with the method 'random', which equal probability of the weight-decay being 0.1, 0.2, 0.3, 0.4 and 0.5 and the learning rate to be in the interval [1e-5, 1e-3] with a uniform probability distribution. We ran 2 epochs and made 10 trials. For this experiment we get that the best model has the parameters learning-rate = $3.194\cdot 10^{-5}$ and weight_decay = 0.1. This gives us an accuracy of 0.23. This is pretty bad, because we only have 5 different labels so it basically means that the model predictions are random. This makes sense since we are training on so little data and only running 2 epochs. But we could just choose to train on the full data with more epochs, and the hyperparameter sweep we've implemented will work and can be a useful way of tuning the model.
+
 ![Alt text](figures/sweep.png?raw=true "sweep")
 
 ### Question 15
