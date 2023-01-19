@@ -386,7 +386,7 @@ We used the compute engine through the vertex ai with a pytorch setup. We traine
 >
 > Answer:
 
---- The bucket ended up costing 0.47 Euro, the Cloud run to host the fastapi is costing 0.01 Euro  ---
+--- The bucket ended up costing 0.47 Euro, the Cloud run to host the fastapi is costing 0.01 Euro and the network cost for s220647 were 0.02 Euro  ---
 
 ## Overall discussion of project
 
