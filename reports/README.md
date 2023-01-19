@@ -251,7 +251,7 @@ We were however not fully using the potentialities of dvc since in the creation 
 >
 > Answer:
 
-![Alt text](figures/sweep.png?raw=true "Title")
+![Alt text](figures/sweep.png?raw=true "sweep")
 
 ### Question 15
 
@@ -340,7 +340,7 @@ We used the compute engine through the vertex ai with a pytorch setup. We traine
 >
 > Answer:
 
-![Alt text](figures/cloudbuild_history.png?raw=true "cloudbuild_history")
+![Alt text](figures/cloudbuild_history.PNG?raw=true "cloudbuild_history")
 
 ### Question 22
 
