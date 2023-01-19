@@ -244,7 +244,7 @@ We made a config.yaml file and integrated this with hydra. However, we decided t
 >
 > Answer:
 
---- question 13 fill here ---
+--- Yes we have used a config file which states the hyperparameters such that we know the exact values when running an experiment. To reproduce experiments the user will then have to define hyperparameters by calling the config file.  Contrary, when we did a hyperparameter fine tuning we used WANDB which logs the exact values for each search. Thus the user can reproduce the experiments based on these logs. Moreover, when we created a fastApi we utilized docker by first building an image which then can be build into a container. Having this container also ensures reproducibility since it doesn't change among different users. ---
 
 ### Question 14
 
