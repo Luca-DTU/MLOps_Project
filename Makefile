@@ -1,4 +1,4 @@
-.PHONY: clean data lint requirements train  sync_data_to_s3 sync_data_from_s3
+.PHONY: clean data lint requirements train sweep sync_data_to_s3 sync_data_from_s3
 
 #################################################################################
 # GLOBALS                                                                       #
@@ -37,6 +37,10 @@ clean:
 ## Train model
 train:
 	$(PYTHON_INTERPRETER) src/models/train_model.py
+
+## Sweep model
+sweep:
+	$(PYTHON_INTERPRETER) src/models/train_model_sweep.py
 
 ## Lint using flake8
 lint:
