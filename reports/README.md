@@ -73,7 +73,7 @@ be installed with `pip install click markdown`.
 >
 > Answer:
 
---- We have used the hugginface framework which turned out to be a nice framwork to work with. It was usefull when we created the fastApi since a wrapper named 'TextClassificationPipeline' could take in a tokenizer and a model and then predict based on a string-input. This way we avoided to do complicated data set-up which the model would require to run. Moreover.... ---
+--- We have used the Hugginface Transformers framework which reduced the amount of boilerplate in the codebase and offered a lot of ad hoc integration with external software. For example it logged experiments to Weights & Biases by default. Another example of a very noticeable reduction in boilerplate is in the inference part of the project, it was useful when we created the fastApi since a wrapper named 'TextClassificationPipeline' could take in a tokenizer and a model and then predict based on a string-input directly in one line of code. This way we avoided to do complicated data set-up. Moreover we used the trainer class to train the model. ---
 
 ## Coding environment
 
@@ -92,7 +92,7 @@ be installed with `pip install click markdown`.
 >
 > Answer:
 
---- We have created a requirements.txt file which keeps track of the package dependencies that is required to run the project. So for a new team member to get started with the project the following command must be run: 'pip install -r requirements.txt'. We have created the requirements file by autogeneration from our conda environment using the command 'conda list -e > requirements.txt'. This command scans our conda environment and fills out the requirements file with the packages one need to create the same environment. Therefore it is nice to work with conda since it is easy to create requirement files like this.---
+--- We have created a requirements.txt file which keeps track of the package dependencies that is required to run the project. So for a new team member to get started with the project the following command must be run: 'pip install -r requirements.txt'. We have created the requirements file by autogeneration from our conda environment using the command 'conda list -e > requirements.txt'. This command scans our conda environment and fills out the requirements file with the packages one need to create the same environment. Furthermore, based on the cookiecutter structure we created a second requirements file which is used specifically for the additional requirements to run tests.---
 
 ### Question 5
 
@@ -107,7 +107,8 @@ be installed with `pip install click markdown`.
 > *experiments.*
 > Answer:
 
---- We initialized the project with the cookiecutter structure. We have filled out the src/data/ folder by completing the 'make_dataset.py' file and also filled out the src/models folder by completing the 'model.py', 'predict_model.py' and 'train_model.py' files. We have also added new folders like '.github', '.dvc' and 'conf'. .github takes care of unittesting and workflows, '.dvc' specifies the setup for the dvc and push/pulling data and lastly the 'conf' folder takes care of the configuration file for running the project. We do have some empty folders which we could delete but we have kept them in case we suddenly would use them. ---
+--- We initialized the project with the cookiecutter structure. We have filled out the src/data/ folder by completing the 'make_dataset.py' file and also filled out the src/models folder by completing the 'model.py', 'predict_model.py' and 'train_model.py' files. We have also added new folders like '.github', '.dvc' and 'conf'. .github takes care of unittesting and workflows, '.dvc' specifies the setup for the dvc and push/pulling data and lastly the 'conf' folder takes care of the configuration file for running the project. 
+We have a few dockerfiles, yaml files for the Vertex AI runs a main.py inference file in the root directory, and we modified the makefile as well. We do have some empty folders which we could delete but we have kept them in case we suddenly would use them. ---
 
 ### Question 6
 
@@ -131,7 +132,7 @@ be installed with `pip install click markdown`.
 >
 > Answer:
 
---- We have created 9 test unit test for this project- 4 tests that check the data and 5 tests that check the model. The data tests we have implemented checks if the data folder exists, if the preprocessed data exists, if the shape of the data is correct and check if the data consists of 26 characters. For the model tests we check the device if its cuda or CPU, if we have labels, the size of the model and the model embeddings.  ---
+--- question 7 fill here ---
 
 ### Question 8
 
