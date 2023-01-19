@@ -260,7 +260,7 @@ We made a config.yaml file and integrated this with hydra. However, we decided t
 >
 > Answer:
 
-![Alt text](reports/figure/sweep.png?raw=true "Title")
+![Alt text](figures/sweep.png?raw=true "Title")
 
 ### Question 15
 
