@@ -454,4 +454,5 @@ s174477: developed the fastApi code and then created the dockerfile to convert t
   
 s214129: Set up test code for make_dataset.py and model.py. Set up workflow for testing. Set up gcp container for training the model with CPU. Set up cloudbuild. running coverage on test.
 
+ s174197: Developing the make_dataset.py, model.py and train_model.py. Setting up wandb and hyperparameter sweeping. Also worked a bit on hydra and the config.yaml file. Worked a lot with bugs regarding dvc which struggled to connect to google cloud because of credit exhaustion.
 ---
