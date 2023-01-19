@@ -13,8 +13,32 @@ from src.data.make_dataset import yelp_dataset
 from src.models.model import transformer
 import wandb
 
-sweep_config = omegaconf.OmegaConf.load("conf/sweep_config.yaml")
-sweep_id = wandb.sweep(wandb.config, project='huggingface_sweep')
+
+# method
+sweep_config = {
+    'method': 'random'
+}
+
+# hyperparameters
+parameters_dict = {
+    'epochs': {
+        'value': 1
+        },
+    'batch_size': {
+        'values': [8, 16, 32, 64]
+        },
+    'learning_rate': {
+        'distribution': 'log_uniform_values',
+        'min': 1e-5,
+        'max': 1e-3
+    },
+    'weight_decay': {
+        'values': [0.0, 0.1, 0.2, 0.3, 0.4, 0.5]
+    }
+}
+
+sweep_config['parameters'] = parameters_dict
+sweep_id = wandb.sweep(sweep_config, project='huggingface_sweep')
 
 
 # Define metric function
@@ -31,18 +55,18 @@ def load_training_cfg(cfg):
     training_args = TrainingArguments(**info)
     return training_args
 
-def load_training_sweep(config):
-    training_args = TrainingArguments(
-        output_dir='vit-sweeps',
-	    report_to='wandb',  # Turn on Weights & Biases logging
-        num_train_epochs=config.epochs,
-        learning_rate=config.learning_rate,
-        weight_decay=config.weight_decay,
-        save_strategy='steps',
-        evaluation_strategy='steps',
-        logging_strategy='steps'
-    )
-    return training_args
+# def load_training_sweep(config):
+#     training_args = TrainingArguments(
+#         output_dir='vit-sweeps',
+# 	    report_to='wandb',  # Turn on Weights & Biases logging
+#         num_train_epochs=config.epochs,
+#         learning_rate=config.learning_rate,
+#         weight_decay=config.weight_decay,
+#         save_strategy='steps',
+#         evaluation_strategy='steps',
+#         logging_strategy='steps'
+#     )
+#     return training_args
 
 def main(config=None):
     with wandb.init(config=config):
@@ -73,7 +97,16 @@ def main(config=None):
         # Download the pretrained model
         model = transformer("models/pre_trained").to(device)
         # load training configuration from cfg file
-        training_args = load_training_sweep(config)
+        training_args = TrainingArguments(
+            num_train_epochs=config.epochs,
+            learning_rate=config.learning_rate,
+            weight_decay=config.weight_decay,
+            save_strategy='steps',
+            evaluation_strategy='steps',
+            logging_strategy='steps',
+            eval_accumulation_steps = 1,
+            eval_steps = 1000
+            )
 
         # Define trainer
         trainer = Trainer(
@@ -90,5 +123,5 @@ def main(config=None):
 
 wandb.agent(sweep_id, main, count=3)
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()
