@@ -7,7 +7,7 @@ import numpy as np
 import evaluate
 from transformers import TrainingArguments, Trainer
 import omegaconf
-#import hydra
+import hydra
 import os
 from src.data.make_dataset import yelp_dataset
 from src.models.model import transformer
@@ -22,7 +22,7 @@ sweep_config = {
 # hyperparameters
 parameters_dict = {
     'epochs': {
-        'value': 1
+        'value': 3
         },
     'batch_size': {
         'values': [8, 16, 32, 64]
@@ -55,24 +55,24 @@ def load_training_cfg(cfg):
     training_args = TrainingArguments(**info)
     return training_args
 
-# def load_training_sweep(config):
-#     training_args = TrainingArguments(
-#         output_dir='vit-sweeps',
-# 	    report_to='wandb',  # Turn on Weights & Biases logging
-#         num_train_epochs=config.epochs,
-#         learning_rate=config.learning_rate,
-#         weight_decay=config.weight_decay,
-#         save_strategy='steps',
-#         evaluation_strategy='steps',
-#         logging_strategy='steps'
-#     )
-#     return training_args
+def load_training_sweep(config):
+    training_args = TrainingArguments(
+        output_dir='sweeps',
+        report_to='wandb',  # Turn on Weights & Biases logging
+        num_train_epochs=config.epochs,
+        learning_rate=config.learning_rate,
+        weight_decay=config.weight_decay,
+        save_strategy='steps',
+        evaluation_strategy='steps',
+        logging_strategy='steps'
+    )
+    return training_args
 
 def main(config=None):
     with wandb.init(config=config):
         seed = 69
-        train_size = 10
-        test_size = 10
+        train_size = 100
+        test_size = 100
         config = wandb.config
 
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -97,16 +97,7 @@ def main(config=None):
         # Download the pretrained model
         model = transformer("models/pre_trained").to(device)
         # load training configuration from cfg file
-        training_args = TrainingArguments(
-            num_train_epochs=config.epochs,
-            learning_rate=config.learning_rate,
-            weight_decay=config.weight_decay,
-            save_strategy='steps',
-            evaluation_strategy='steps',
-            logging_strategy='steps',
-            eval_accumulation_steps = 1,
-            eval_steps = 1000
-            )
+        training_args = load_training_sweep(config)
 
         # Define trainer
         trainer = Trainer(
@@ -121,7 +112,7 @@ def main(config=None):
         trainer.train()
         #trainer.save_model("models/experiments")
 
-wandb.agent(sweep_id, main, count=3)
+wandb.agent(sweep_id, main, count=10)
 
-# if __name__ == "__main__":
-#     main()
+if __name__ == "__main__":
+    main()
