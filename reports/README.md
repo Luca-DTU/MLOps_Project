@@ -132,10 +132,8 @@ We have a few dockerfiles, yaml files for the Vertex AI runs a main.py inference
 >
 > Answer:
 
---- 
-We have created 9 test unit test for this project, 4 tests that check the data and 5 tests that check the model. The data tests we have implemented check if the data folder exists, if the preprocessed data exists, if the shape of the data is correct and check and if the data consists of at least 26 characters. For the model tests we check whether the device is cuda or CPU, have labels, the size of the model and the model embeddings. 
-We have implemented the tests in github workflows.
----
+--- We have created 9 test unit test for this project, 4 tests that check the data and 5 tests that check the model. The data tests we have implemented check if the data folder exists, if the preprocessed data exists, if the shape of the data is correct and check and if the data consists of at least 26 characters. For the model tests we check whether the device is cuda or CPU, have labels, the size of the model and the model embeddings. 
+We have implemented the tests in github workflows. ---
 
 ### Question 8
 
@@ -150,11 +148,9 @@ We have implemented the tests in github workflows.
 >
 > Answer:
 
---- 
-The total code coverage is 66% as reported by running the coverage report, which is far from 100%.  
+--- The total code coverage is 66% as reported by running the coverage report, which is far from 100%.  
 If we had a 100% coverage we would have no reason to believe that our code would be error free, the reason for this are multiple.
-The tests can cover all of the code but at the same time not pass, even if everything passed, the tests could just be "bad" tests and not really cover every aspect or every relation between the objects. Moreover the data can be corrupted and the tests on the code would not be able to catch it.
----
+The tests can cover all of the code but at the same time not pass, even if everything passed, the tests could just be "bad" tests and not really cover every aspect or every relation between the objects. Moreover the data can be corrupted and the tests on the code would not be able to catch it. ---
 
 ### Question 9
 
@@ -169,13 +165,10 @@ The tests can cover all of the code but at the same time not pass, even if every
 >
 > Answer:
 
---- 
-We exploited the potential of git extensively by using branches and pull requests for our personal work and when working together on larger subprojects.
+--- We exploited the potential of git extensively by using branches and pull requests for our personal work and when working together on larger subprojects.
 An example of how we did that is when towards the end of the project we separated in two subgroups and consequently in two branches to work on the deployment part and on setting up the training on google cloud computing platform.
 We have been consistent in committing frequently to minimize the merge conflicts. 
-What we haven't done however and realized later it would have been a good approach is to use branches in the data versioning control, where we only worked in the master branch.
-
----
+What we haven't done however and realized later it would have been a good approach is to use branches in the data versioning control, where we only worked in the master branch. ---
 
 ### Question 10
 
@@ -190,10 +183,8 @@ What we haven't done however and realized later it would have been a good approa
 >
 > Answer:
 
---- 
-As mentioned above we have used data versioning control on our data and on our model, which was very beneficial for sharing the correct version of the data and making sure that we all had access to the same subset and version of both the raw and the processed data. Similarly we stored our models in dvc which allowed us to store the pretrained model and to make sure that we were all using the same fine-tuned model (i.e. from the same training run).
-We were however not fully using the potentialities of dvc since in the creation of docker images we just used the versions defined at the time instead of setting up the log in to gcp and the pull of the data. Moreover one member never actually managed to get access to our remote bucket using dvc and had to store the data locally.
----
+--- As mentioned above we have used data versioning control on our data and on our model, which was very beneficial for sharing the correct version of the data and making sure that we all had access to the same subset and version of both the raw and the processed data. Similarly we stored our models in dvc which allowed us to store the pretrained model and to make sure that we were all using the same fine-tuned model (i.e. from the same training run).
+We were however not fully using the potentialities of dvc since in the creation of docker images we just used the versions defined at the time instead of setting up the log in to gcp and the pull of the data. Moreover one member never actually managed to get access to our remote bucket using dvc and had to store the data locally. ---
 
 ### Question 11
 
@@ -209,7 +200,7 @@ We were however not fully using the potentialities of dvc since in the creation 
 >
 > Answer:
 
---- We have constructed 3 workflow files flake8, isort, and tests. We have thus integrated a continuous integration setup where we test the code for structure, we test some of the essential scripts for producing expected outputs, and isort to sort the imports. We do test multiple operating systems, namely the latest versions of macos, ubuntu and windows. We also cached our packages and run our workflows on four different Python versions. You can check out our workflows https://github.com/Luca-DTU/MLOps_Project/actions.
+--- We have constructed 3 workflow files flake8, isort, and tests. We have thus integrated a continuous integration setup where we test the code for structure, we test some of the essential scripts for producing expected outputs, and isort to sort the imports. We do test multiple operating systems, namely the latest versions of macos, ubuntu and windows. We also cached our packages and run our workflows on four different Python versions. You can check out our workflows https://github.com/Luca-DTU/MLOps_Project/actions. ---
 
 ## Running code and tracking experiments
 
@@ -228,7 +219,7 @@ We were however not fully using the potentialities of dvc since in the creation 
 >
 > Answer:
 
-We made a config.yaml file and integrated this with hydra. However, we decided to primarily use wandb for logging so we removed the output-folder generated by hydra from our repository. We did not make any argparser but we changed all our parameters for each run in the config.yaml file. We also implemented hyperparameter sweeping from wandb. Here we made an in-script configuration where we examines a random combination of learning rate and weight decay. We modified the make-file, so you can run 'make sweep'.
+--- We made a config.yaml file and integrated this with hydra. However, we decided to primarily use wandb for logging so we removed the output-folder generated by hydra from our repository. We did not make any argparser but we changed all our parameters for each run in the config.yaml file. We also implemented hyperparameter sweeping from wandb. Here we made an in-script configuration where we examines a random combination of learning rate and weight decay. We modified the make-file, so you can run 'make sweep'. ---
 
 ### Question 13
 
@@ -275,7 +266,7 @@ We made a config.yaml file and integrated this with hydra. However, we decided t
 >
 > Answer:
 
-For our project we used docker a couple of times. We created a docker image and build a container for traning locally on a GPU. Moreover we also used docker in the deployment phase of the project where we created a fastApi. We build an image of the app-script named 'main.py' by using the command 'docker build -f triggerDeployment.dockerfile . -t fastapi-test:latest' and then we pushed this image to cloud by using the command 'docker tag fastapi-test gcr.io/<project-id>/fastapi-test' and 'docker push gcr.io/<project-id>/fastapi-test'. Then we can use the google cloud run to run the image which is now found in the google cloud container registry. A link to the docker file: gcr.io/mlops-project-374413/fastapi-test . 
+--- For our project we used docker a couple of times. We created a docker image and build a container for traning locally on a GPU. Moreover we also used docker in the deployment phase of the project where we created a fastApi. We build an image of the app-script named 'main.py' by using the command 'docker build -f triggerDeployment.dockerfile . -t fastapi-test:latest' and then we pushed this image to cloud by using the command 'docker tag fastapi-test gcr.io/<project-id>/fastapi-test' and 'docker push gcr.io/<project-id>/fastapi-test'. Then we can use the google cloud run to run the image which is now found in the google cloud container registry. A link to the docker file: gcr.io/mlops-project-374413/fastapi-test. --- 
 
 ### Question 16
 
@@ -290,7 +281,7 @@ For our project we used docker a couple of times. We created a docker image and 
 >
 > Answer:
 
-In this group we are using VS code and Pycharm and we have used the built-in debugger for both IDE's. We also configured a launch.json in VS code when needed in order to debug a code that required arguments from the command line. We have also used set_trace with pdb. We naturally also did debugging with print statements, especially in the early stage development of the code. We also used the internet a lot while running into bugs and here we often got a clue about what could be wrong, which we could use to either solve it straightaway or narrow down the problem to set breakpoints at more important places in our code. We did no do any profiling, since most of our programme is actually handled by the Huggingface framework. Therefore we expect their code to be already optimised and our own code is not very complex.
+--- In this group we are using VS code and Pycharm and we have used the built-in debugger for both IDE's. We also configured a launch.json in VS code when needed in order to debug a code that required arguments from the command line. We have also used set_trace with pdb. We naturally also did debugging with print statements, especially in the early stage development of the code. We also used the internet a lot while running into bugs and here we often got a clue about what could be wrong, which we could use to either solve it straightaway or narrow down the problem to set breakpoints at more important places in our code. We did no do any profiling, since most of our programme is actually handled by the Huggingface framework. Therefore we expect their code to be already optimised and our own code is not very complex. ---
 
 ## Working in the cloud
 
@@ -307,7 +298,7 @@ In this group we are using VS code and Pycharm and we have used the built-in deb
 >
 > Answer:
 
-We have used cloud build, cloud bucket, container registry, cloud vertex ai. Cloud build is a service where we can set up a trigger connected to a github repo that can automatically build a container each time a person pushes to the repo. The bucket is a service where one can store data. The registry is a service where you can find your containers. Vertex ai is a deployment interface where you can run containers within the cloud- it creates a virtual machine and runs a container.
+--- We have used cloud build, cloud bucket, container registry, cloud vertex ai. Cloud build is a service where we can set up a trigger connected to a github repo that can automatically build a container each time a person pushes to the repo. The bucket is a service where one can store data. The registry is a service where you can find your containers. Vertex ai is a deployment interface where you can run containers within the cloud- it creates a virtual machine and runs a container. Furthermore we also used cloud run to deploy our fastAPI for using the trained model for perdicting ratings for food reviews. ---
 
 ### Question 18
 
