@@ -1,33 +1,54 @@
-name: "flake8 test"
+name: Flake8
 
-on:
+on:   
   push:
     branches: [ master, main, Luca-dev ]
   pull_request:
     branches: [ master, main, Luca-dev ]
 
+
 jobs:
   build:
-
-    runs-on: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        python-version: [3.8, 3.9, 3.10]
+        python-version: [3.6, 3.7, 3.8, 3.9]
+        os: [ubuntu-latest, macos-latest, windows-latest]
     steps:
-    - name: Checkout
+    - name: Checkout code
       uses: actions/checkout@v2
+
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        cache: 'pip'
+        python-version: ${{ matrix.python-version }}
+
+    - name: Cache pip
+      uses: actions/cache@v2
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         pip install -r requirements_tests.txt
-    - name: Test with pytest
+
+    - name: Run Black
+      run: |
+        pip install black
+        black . 
+    - name: Run Flake8
       run: |
         pip install flake8
-        pip install black
-        black .
-        pytest flake8 .
+        flake8 .
+
+    - name: Upload coverage
+      if: always()
+      uses: actions/upload-artifact@v2
+      with:
+        name: flake8-report
+        path: flake8.txt
