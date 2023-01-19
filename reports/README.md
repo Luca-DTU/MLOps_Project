@@ -119,7 +119,7 @@ We have a few dockerfiles, yaml files for the Vertex AI runs a main.py inference
 >
 > Answer:
 
---- Yes we have used flake8, isort and black to ensure we have a format that complies with pep8 standards and that all of our code looks the same. We have implemented these tools in the workflow files such that when we push/pull the code will automatically first run black and then test for pep8 using flake8 in one workflow and runs isort in another workflow. These concepts matter since people code in different ways and if you work with a lot of people it is important you can understand others code. Tools like flake8 and black helps you understand other peoples code. ---
+--- We have used flake8, isort and black to ensure a format that complies with pep8 standards and that all of our code look similar. We have implemented these tools in the workflow files such that when we push/pull the code will automatically first run black and then test for pep8 using flake8 in one workflow and runs isort in another workflow. These concepts matter since people code in different ways and if you work with a lot of people it is important you can understand others code. Tools like flake8 and black helps you understand other peoples code. ---
 
 ## Version control
 
